@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 call vundle#rc()
 
-Bundle 'JofArnold/ir_black2'
+Bundle 'JofArnold/ir_black_strong'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-commentary'
@@ -41,12 +41,15 @@ Bundle 'vim-scripts/CSApprox'
 Bundle 'christoomey/vim-tmux-navigator'
 
 " ************************************
+au VimEnter * IndentGuidesEnable
+let g:indent_guides_auto_colors = 0
+
 
 set nowritebackup
 
 set path=.,**,,
 
-color ir_black2
+color ir_black_strong
 syntax on
 
 " Line numbers toggle
