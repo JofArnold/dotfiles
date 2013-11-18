@@ -38,6 +38,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'rking/ag.vim'
 Bundle 'vim-scripts/CSApprox'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " ************************************
 
