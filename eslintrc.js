@@ -9,6 +9,7 @@ module.exports = {
     jest: true,
     node: true,
     es6: true,
+    window: true,
   },
   rules: {
     'prettier/prettier': [
