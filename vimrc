@@ -2,81 +2,176 @@ set t_Co=256
 set visualbell
 
 " ************************************
-set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"set rtp+=~/.vim/bundle/vundle/
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"set rtp+=~/.vim/plugged/powerline/powerline/bindings/vim
 
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-Bundle 'JofArnold/ir_black_strong'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'godlygeek/tabular'
-Bundle 'vim-scripts/searchfold.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
-Bundle 'juvenn/mustache.vim'
-Bundle 'slim-template/vim-slim'
-Bundle 'mattn/webapi-vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'groenewege/vim-less'
-Bundle 'vim-scripts/vim-stylus'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'rking/ag.vim'
-Bundle 'vim-scripts/CSApprox'
-Bundle 'christoomey/vim-tmux-navigator'
 
-" ************************************
-au VimEnter * IndentGuidesEnable
-let g:indent_guides_auto_colors = 0
+Plug 'digitaltoad/vim-jade'
+Plug 'wavded/vim-stylus'
+Plug 'joshdick/onedark.vim'
 
+Plug 'Valloric/MatchTagAlways'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
+Plug 'kien/ctrlp.vim'
+Plug 'mtscout6/vim-cjsx'
+Plug 'elzr/vim-json'
+Plug 'wavded/vim-stylus'
+let g:jsx_ext_required = 0
+Plug 'mxw/vim-jsx'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-ragtag'
+let g:ragtag_global_maps = 1
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'xolox/vim-misc'
+Plug 'jparise/vim-graphql'
+Plug 'xolox/vim-session'
+Plug 'terryma/vim-multiple-cursors'
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_insert_maps={ "\<C-r>": 1 }
+Plug 'junegunn/vim-emoji'
+Plug 'wakatime/vim-wakatime'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'fleischie/vim-styled-components'
+" Plug 'mitermayer/vim-prettier'
+Plug 'sbdchd/neoformat'
+let g:neoformat_enabled_javascript = ['eslint_d']
+augroup neoformat_group
+  autocmd!
+  autocmd BufWritePre *.js,*.jsx silent Neoformat
+augroup END
+
+" Plug 'vim-syntastic/syntastic'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exec = 'eslint_d'
+" let g:syntastic_enable_signs=1
+
+" Autofix entire buffer with eslint_d:
+nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
+" Autofix visual selection with eslint_d:
+vnoremap <leader>f :!eslint_d --stdin --fix-to-stdout<CR>gv
+
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+set smartindent
+
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.vim'] }
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.vim'] }
+
+" Linting
+Plug 'benjie/neomake-local-eslint.vim'
+Plug 'benekastah/neomake'
+
+call plug#end()
+
+let g:neomake_javascript_enabled_makers = ['eslint_d']
+let g:neomake_jsx_enabled_makers = ['eslint_d']
+autocmd! BufWritePost *.js,*.jsx silent NeomakeFile
+autocmd! BufWinEnter *.js,*.jsx silent NeomakeFile
+let g:neomake_coffee_enabled_makers = ['coffeelint']
+let g:neomake_cjsx_enabled_makers = ['coffeelint']
+autocmd! BufWritePost *.coffee,*.cjsx silent NeomakeFile
+autocmd! BufWinEnter *.coffee,*.cjsx silent NeomakeFile
+let g:neomake_ruby_rubocop_args = ['--format', 'emacs', '-D']
+let g:neomake_ruby_enabled_makers = ['rubocop']
+autocmd! BufWritePost *.rb silent NeomakeFile
+autocmd! BufWinEnter *.rb silent NeomakeFile
+let g:neomake_list_height = 5
+
+let g:neomake_warning_sign = {'text': '💩'}
+let g:neomake_error_sign = {'text': '💩'}
+let g:neomake_message_sign = {'text': '💩'}
+let g:neomake_info_sign= {'text': '💩'}
 
 set nowritebackup
 
 set path=.,**,,
 
-color ir_black_strong
-syntax on
-
-" Line numbers toggle
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   endif
-endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+
+" Prettier
+
+"autocmd FileType javascript set formatprg=prettier\ --stdin
+" This makes Prettier power the gq command for automatic formatting without any plugins. You can also add the following to your .vimrc to run prettier when .js files are saved:
+" autocmd FileType javascript set formatprg=eslint_d\ --stdin
+" autocmd BufWritePre *.js :normal gggqG
+
+
+" If you want to restore cursor position after formatting, try this (although it's not guaranteed that it will be restored to the same place in the code since it may have moved):
+"autocmd BufWritePre *.js exe 'normal! gggqG\<C-o>\<C-o>'
+" Add Prettier command
+"nnoremap <leader>pr gggqG<Esc>
+"autocmd BufWritePost *.js,*.jsx call prettier#run(1)
+
+
+" Surround word
+nnoremap <leader>"" :normal ysiw"<Enter>
+
+
+syntax on
+" g:onedark_termcolors
+" g:onedark_terminal_italics = 1
+colorscheme onedark
 
 
 " Sensible long lines
-set wrap
+set nowrap
 set formatoptions=qrn1
+" hi LongLine            guifg=NONE        guibg=NONE        gui=undercurl ctermfg=203       ctermbg=203         cterm=undercurl     guisp=#FF6C60 " undercurl color
+" au BufNewFile,BufRead * call matchadd('LongLine',  '\%>80v.\+', 100)
+
 
 " Show invisble chars
 set list
 set listchars=tab:▸\ ,eol:¬
+set linespace=1
 
 " Vim powerline
 set nocompatible   " Disable vi-compatibility
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set laststatus=2
-let g:Powerline_symbols = 'fancy'
-set guifont=Monaco\ for\ Powerline
+let g:powerline_symbols = 'unicode'
+set guifont=Monaco\ For\ Powerline:h13
+filetype plugin on
+let g:powerline_dividers_override = ['>>', '>', '<<', '<']
+let g:powerline_theme = 'solarized256'
 
 
 " Better tabs"
@@ -84,12 +179,13 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-let g:indent_guides_on_vim_startup=1
-let g:indent_guides_guide_size=1
-let g:indent_guides_start_level=2
+" let g:indent_guides_on_vim_startup=1
+" let g:indent_guides_guide_size=1
+" let g:indent_guides_start_level=2
 
 " Lines
-set cursorline
+" set cursorline
+" set cursorcolumn
 set number
 
 " Searching
@@ -98,36 +194,37 @@ set incsearch
 set smartcase
 nnoremap <C-H> :noh<cr>
 
+" use ctrpl settings
+let g:ctrlp_clear_cache_on_exit=0
+" Have CtrlP use Vim's cwd not it's smarty pants stuff.
+let g:ctrlp_working_path_mode=0
+
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
+
+" bind K to grep word under cursor (which is now using ag...)
+"nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
-let g:ycm_key_list_select_completion =  ['<C-TAB>', '<Down>']
+" let g:ycm_key_list_select_completion =  ['<C-TAB>', '<Down>']
+" let g:ycm_server_python_interpreter = '/usr/local/bin/python'
+" let g:ycm_python_binary_path = '/usr/local/bin/python3'
+" let g:ycm_server_keep_logfiles = 1
+" let g:ycm_server_log_level = 'debug'
 
-
-" Fold defaults
-"set foldmethod=syntax
-"set foldlevelstart=1
-"set foldnestmax=2
-"
-"" Code folding based on indent for CoffeeScript
-"au BufNewFile,BufReadPost *.coffee set foldmethod=indent
-"" Unfold one level
-"au BufNewFile,BufReadPost *.coffee normal zMzr
-"
-"" Code folding based on burly braces for JavaScript
-"au BufNewFile,BufReadPost *.js syntax region foldBraces start=/function/ end=/}/ transparent fold keepend extend
-"au BufNewFile,BufReadPost *.js set foldmethod=syntax
-"" au BufNewFile,BufReadPost *.js set foldlevel=99
-"
-"" Code folding based on indent for CoffeeScript
-"au BufNewFile,BufReadPost *.html set foldmethod=indent
-"au BufNewFile,BufReadPost *.html set foldlevel=2
-"au BufNewFile,BufReadPost *.html set foldnestmax=4
-
-" NERDTree config
-nnoremap <C-t> :NERDTreeTabsToggle<cr>
-let g:NERDTreeWinPos = "right"
 
 " Sensible windows natigation (versus the painful <C-W>hjkl version)
 nmap <silent> <A-Up> :wincmd k<CR>
@@ -137,7 +234,7 @@ nmap <silent> <A-Right> :wincmd l<CR>
 
 
 " Yaml Configuration
-au BufRead,BufNewFile *.{yml,yaml} set foldmethod=indent
+au BufRead,BufNewFile *.{yml,yaml}
 
 " Remember last location in file
 if has("autocmd")
@@ -158,6 +255,8 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 " Mustache configuration
 au BufNewFile,BufRead *.mustache        setf mustache
 
+" Add stylus highlighting
+au BufNewFile,BufRead *.styl set filetype=stylus
 
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
@@ -166,7 +265,17 @@ au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 set backspace=indent,eol,start
 
 " load the plugin and indent settings for the detected filetype
-filetype plugin indent on
+" filetype plugin indent on
+
+" jumping around files with gf
+autocmd filetype jade setl suffixesadd=.jade
+autocmd filetype stylus setl suffixesadd=.styl
+autocmd filetype javascript setl suffixesadd=.coffee,.litcoffee,.cjsx,.js,.json,.jsx
+autocmd filetype coffee setl suffixesadd=.coffee,.litcoffee,.cjsx,.js,.json,.jsx
+
+highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
+
+highlight ExtraWhitespace ctermfg=yellow guibg=yellow
 
 " Only match whitespace when not in insert mode
 match ExtraWhitespace /\s\+$/
@@ -218,17 +327,20 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 "spell check when writing commit logs
 autocmd filetype svn,*commit* set spell
 
+" ctrpl ignores
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\',
+  \ 'dir':  'node_modules$\|\.DS_Store$\.git$\|\.hg$\|\.svn\|doc$',
   \ 'file': '\.exe$\|\.so$\|\.dll$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+
+
 " cd to the directory containing the file in the buffer
 nmap <silent> <leader>cd :lcd %:h<CR>
 
-" Reload vimrc; install bundle
-nmap <silent> <leader>rc :so ~/.vimrc \| :BundleInstall<CR>
+" Reload vimrc; install plug
+nmap <silent> <leader>rc :so ~/.vimrc \| :PlugInstall<CR>
 
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
@@ -380,39 +492,16 @@ set hidden
 " Vim Sessions
 "*****************************************************************************
 " ignore 'options' because of latex-suite (would be pointless to save that!)
+let g:session_autoload = 'no'
 set sessionoptions=blank,curdir,folds,help,resize,tabpages,winsize
 map <leader>ss :mksession! ~/.vim/.session<cr>
 map <leader>sr :source ~/.vim/.session<cr>
 " Don't have YouCompleteMe ignore any files
 " (especially not Markdown!)
-let g:ycm_filetypes_to_completely_ignore = {}
-let g:ycm_complete_in_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-" UltiSnips completion function that tries to expand a snippet. If there's no
-" snippet for expanding, it checks for completion window and if it's
-" shown, selects first element. If there's no completion window it tries to
-" jump to next placeholder. If there's no placeholder it just returns TAB key 
-function! g:UltiSnips_Complete()
-  call UltiSnips_ExpandSnippet()
-  if g:ulti_expand_res == 0
-    call UltiSnips_JumpForwards()
-    if g:ulti_jump_forwards_res == 0
-      if pumvisible()
-        return "\<C-n>"
-      else
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
-let g:UltiSnipsExpandTrigger = "<Tab>"
-exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-
-let g:ackprg = 'ag --nogroup --nocolor --column'
-let g:ctrlp_clear_cache_on_exit=0
-" Have CtrlP use Vim's cwd not it's smarty pants stuff.
-let g:ctrlp_working_path_mode=0
+" let g:ycm_filetypes_to_completely_ignore = {}
+" let g:ycm_complete_in_comments_and_strings = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:session_autosave = 'no'
 
 
 " Windows
@@ -424,8 +513,47 @@ set guioptions-=R
 
 
 " Mouse dragging of panes in tmux
-set mouse+=a
 if &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
+  set mouse+=a
+  " tmux knows the extended mouse mode
+  set ttymouse=xterm2
 endif
+
+
+set nofoldenable
+
+" Some vim plugin is fucking with my keyword definitions
+"au BufReadPost *.js setl iskeyword=@,48-57,_,192-255,$
+"au BufReadPost *.jsx setl iskeyword=@,48-57,_,192-255,$
+"au WinEnter *.css setl iskeyword=@,48-57,_,192-255,$
+"
+
+function! AddComponent(name, subpath)
+  exe "!./scripts/add_component.js ".shellescape(a:name)." ".shellescape(a:subpath)
+  exe "edit src/components/".a:subpath."/".a:name.".js"
+  exe "split src/components/".a:subpath."/".a:name.".css"
+endfunction
+
+function! RGAddComponent(name, subpath)
+  exe "!./scripts/add_component.js ".shellescape(a:name)." ".shellescape(a:subpath)
+  exe "edit src/components/".a:subpath."/".a:name.".js"
+  exe "split src/components/".a:subpath."/".a:name.".css"
+endfunction
+
+function! BzAddComponent(name, subpath)
+  exe "!./scripts/add_component.js ".shellescape(a:name)." ".shellescape(a:subpath)
+  exe "vsplit styles/components/".a:subpath."/".a:name.".styl"
+  exe "edit src/components/".a:subpath."/".a:name.".js"
+endfunction
+
+command! -nargs=1 AddComponent call AddComponent(<f-args>, "")
+command! -nargs=1 AddUIComponent call AddComponent(<f-args>, "ui")
+command! -nargs=1 BzAddComponent call BzAddComponent(<f-args>, "")
+command! -nargs=1 RGAddComponent call RGAddComponent(<f-args>, "")
+
+"let g:neocomplete#enable_at_startup = 1
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
