@@ -29,7 +29,6 @@
 ######################
 .DS_Store*
 ehthumbs.db
-Icon?
 Thumbs.db
 
 # Tmp files
@@ -51,7 +50,6 @@ build/*
 *.xcworkspace
 !default.xcworkspace
 xcuserdata
-profile
 *.moved-aside
 
 # Node
