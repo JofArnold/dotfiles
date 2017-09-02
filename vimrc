@@ -1,18 +1,8 @@
-set t_Co=256
-set visualbell
-
-" ************************************
-"set rtp+=~/.vim/bundle/vundle/
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-"set rtp+=~/.vim/plugged/powerline/powerline/bindings/vim
-
 call plug#begin('~/.vim/plugged')
-
 
 Plug 'digitaltoad/vim-jade'
 Plug 'wavded/vim-stylus'
 Plug 'joshdick/onedark.vim'
-
 Plug 'Valloric/MatchTagAlways'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'kchmck/vim-coffee-script'
@@ -46,27 +36,17 @@ let g:multi_cursor_insert_maps={ "\<C-r>": 1 }
 Plug 'junegunn/vim-emoji'
 Plug 'wakatime/vim-wakatime'
 Plug 'michaeljsmith/vim-indent-object'
-"Plug 'fleischie/vim-styled-components'
 Plug 'JofArnold/vim-template-literal'
 Plug 'christoomey/vim-tmux-navigator'
-
-" Plug 'mitermayer/vim-prettier'
 Plug 'sbdchd/neoformat'
+
 let g:neoformat_enabled_javascript = ['eslint_d']
 augroup neoformat_group
   autocmd!
   autocmd BufWritePre *.js,*.jsx silent Neoformat
 augroup END
 
-" Autofix entire buffer with eslint_d:
-nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
-" Autofix visual selection with eslint_d:
-vnoremap <leader>f :!eslint_d --stdin --fix-to-stdout<CR>gv
-
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-set smartindent
-
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.vim'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.vim'] }
@@ -74,8 +54,19 @@ Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.vim'] }
 " Linting
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'benekastah/neomake'
+" Autofix entire buffer with eslint_d:
+nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
+" Autofix visual selection with eslint_d:
+vnoremap <leader>f :!eslint_d --stdin --fix-to-stdout<CR>gv
+
 
 call plug#end()
+
+
+"*****************************************************************************
+" Neomake
+"*****************************************************************************
+
 
 let g:neomake_javascript_enabled_makers = ['eslint_d']
 let g:neomake_jsx_enabled_makers = ['eslint_d']
@@ -100,81 +91,99 @@ set nowritebackup
 
 set path=.,**,,
 
-""Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-""If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-""(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-"if (empty($TMUX))
-"  if (has("nvim"))
-"    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-"    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"  endif
-"  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-"  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-"  if (has("termguicolors"))
-"    set termguicolors
-"  endif
-"endif
 
+"*****************************************************************************
+" Surround
+"*****************************************************************************
 
 " Surround word
 nnoremap <leader>"" :normal ysiw"<Enter>
 
 
-syntax on
-" g:onedark_termcolors
-" g:onedark_terminal_italics = 1
-colorscheme onedark
+"*****************************************************************************
+" GUI
+"*****************************************************************************
 
+
+set t_Co=256
+set visualbell
+
+set smartindent
+
+syntax on
+g:onedark_termcolors
+g:onedark_terminal_italics = 1
+colorscheme onedark
 
 " Sensible long lines
 set nowrap
+set nofoldenable
 set formatoptions=qrn1
-
 
 " Show invisble chars
 set list
 set listchars=tab:▸\ ,eol:¬
 set linespace=1
-
-" Vim powerline
-set nocompatible   " Disable vi-compatibility
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set laststatus=2
-let g:powerline_symbols = 'unicode'
-set guifont=Monaco\ For\ Powerline:h13
-filetype plugin on
-let g:powerline_dividers_override = ['>>', '>', '<<', '<']
-let g:powerline_theme = 'solarized256'
-
-
-" Better tabs"
+"
+" Better tabs
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-" let g:indent_guides_on_vim_startup=1
-" let g:indent_guides_guide_size=1
-" let g:indent_guides_start_level=2
-
+"
 " Lines
-" set cursorline
-" set cursorcolumn
 set number
+"
+" Ensure 5 lines of context always visible about cursor
+set scrolloff=5
 
-" Searching
-set hlsearch
-set incsearch
-set smartcase
-nnoremap <C-H> :noh<cr>
+" Font
+set guifont=Monaco\ For\ Powerline:h13
+
+set nocompatible   " Disable vi-compatibility
+set encoding=utf-8 " Necessary to show Unicode glyphs
+
+
+"*****************************************************************************
+" Powerline
+"*****************************************************************************
+
+set laststatus=2
+let g:powerline_symbols = 'unicode'
+let g:powerline_dividers_override = ['>>', '>', '<<', '<']
+let g:powerline_theme = 'solarized256'
+
+
+"*****************************************************************************
+" ctrlp
+"*****************************************************************************
 
 " use ctrpl settings
 let g:ctrlp_clear_cache_on_exit=0
 " Have CtrlP use Vim's cwd not it's smarty pants stuff.
 let g:ctrlp_working_path_mode=0
+" ctrpl ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules$\|\.DS_Store$\.git$\|\.hg$\|\.svn\|doc$',
+  \ 'file': '\.exe$\|\.so$\|\.dll$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 
-" The Silver Searcher
+"*****************************************************************************
+" Search and autocomplete
+"*****************************************************************************
+
+" Native search
+set hlsearch
+set incsearch
+set smartcase
+nnoremap <C-H> :noh<cr>
+"
+" Pattern ignore when use the completion in search file
+set wig=*.o,*.obj,*~,#*#,*.pyc,*.tar*,*.avi,*.ogg,*.mp3
+
+" Ag
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -185,27 +194,18 @@ if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
-" bind K to grep word under cursor (which is now using ag...)
-"nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
-" let g:ycm_key_list_select_completion =  ['<C-TAB>', '<Down>']
-" let g:ycm_server_python_interpreter = '/usr/local/bin/python'
-" let g:ycm_python_binary_path = '/usr/local/bin/python3'
-" let g:ycm_server_keep_logfiles = 1
-" let g:ycm_server_log_level = 'debug'
 
 
-" Sensible windows natigation (versus the painful <C-W>hjkl version)
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+"*****************************************************************************
+" File handling
+"*****************************************************************************
 
+
+filetype plugin on
 
 " Yaml Configuration
 au BufRead,BufNewFile *.{yml,yaml}
@@ -218,37 +218,26 @@ endif
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,Guardfile}    set ft=ruby
-"
-" md, markdown, and mk are markdown and define buffer-local preview
-" au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupWrapping()
-
-" add json syntax highlighting
-au BufNewFile,BufRead *.json set ft=javascript
-" au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " Mustache configuration
 au BufNewFile,BufRead *.mustache        setf mustache
 
-" Add stylus highlighting
-au BufNewFile,BufRead *.styl set filetype=stylus
-
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
-" load the plugin and indent settings for the detected filetype
-" filetype plugin indent on
+"*****************************************************************************
+" Syntax highlighting
+"*****************************************************************************
 
-" jumping around files with gf
-autocmd filetype jade setl suffixesadd=.jade
-autocmd filetype stylus setl suffixesadd=.styl
-autocmd filetype javascript setl suffixesadd=.coffee,.litcoffee,.cjsx,.js,.json,.jsx
-autocmd filetype coffee setl suffixesadd=.coffee,.litcoffee,.cjsx,.js,.json,.jsx
 
+au ColorScheme *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} setlocal spell spelllang=en
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} match ExtraWhitespace /\s\+$\|\t/
+au BufNewFile,BufRead *.json set ft=javascript
+au BufNewFile,BufRead *.styl set filetype=stylus
 highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
-
 highlight ExtraWhitespace ctermfg=yellow guibg=yellow
 
 " Only match whitespace when not in insert mode
@@ -260,7 +249,6 @@ autocmd BufWinLeave * call clearmatches()
 
 " Syntax highlighting for things that should probably not be in the file
 au BufRead,BufNewFile * syn keyword DebugCommands console log alert
-
 
 if has("mac")
   let g:gist_clip_command = 'pbcopy'
@@ -274,12 +262,6 @@ let g:gist_open_browser_after_post = 1
 set showcmd
 " Turn off jslint errors by default
 let g:JSLintHighlightErrorLine = 0
-
-" MacVIM shift+arrow-keys behavior (required in .vimrc)
-let macvim_hig_shift_movement = 1
-
-" Patter ignore when use the completion in search file
-set wig=*.o,*.obj,*~,#*#,*.pyc,*.tar*,*.avi,*.ogg,*.mp3
 
 " No save backup by .swp
 set nowb
@@ -301,20 +283,36 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 "spell check when writing commit logs
 autocmd filetype svn,*commit* set spell
 
-" ctrpl ignores
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  'node_modules$\|\.DS_Store$\.git$\|\.hg$\|\.svn\|doc$',
-  \ 'file': '\.exe$\|\.so$\|\.dll$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
 
 
+"*****************************************************************************
+" Keys
+"*****************************************************************************
+"
+"
+" jumping around files with gf
+autocmd filetype jade setl suffixesadd=.jade
+autocmd filetype stylus setl suffixesadd=.styl
+autocmd filetype javascript setl suffixesadd=.coffee,.litcoffee,.cjsx,.js,.json,.jsx
+autocmd filetype coffee setl suffixesadd=.coffee,.litcoffee,.cjsx,.js,.json,.jsx
 
 " cd to the directory containing the file in the buffer
 nmap <silent> <leader>cd :lcd %:h<CR>
 
 " Reload vimrc; install plug
 nmap <silent> <leader>rc :so ~/.vimrc \| :PlugInstall<CR>
+"
+" Sensible windows navigation (versus the painful <C-W>hjkl version)
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+"
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+"
+" MacVIM shift+arrow-keys behavior (required in .vimrc)
+let macvim_hig_shift_movement = 1
 
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
@@ -422,21 +420,6 @@ else
   imap <C-9> <Esc>9gt
 endif
 
-
-" Tmux cursor change
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
-au ColorScheme *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=red guibg=red
-
-" Ensure 5 lines of context always visible about cursor
-set scrolloff=5
-
 " ', ' maps to clear highlights
 nnoremap <leader><space> :noh<cr>
 
@@ -457,26 +440,37 @@ nnoremap <leader>mh yypv$r
 nnoremap <leader>ml mLya]Go: <Esc>0P`L
 nnoremap <leader>mL mLya]Go: <Esc>"*p0P`L
 nnoremap <leader>bd :b#<bar>bd#<CR>
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} setlocal spell spelllang=en
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} match ExtraWhitespace /\s\+$\|\t/
+"
 " Don't unload buffers when switching (preserves undo history):
 set hidden
+
+
 "*****************************************************************************
 " Vim Sessions
 "*****************************************************************************
+
+
 " ignore 'options' because of latex-suite (would be pointless to save that!)
+
 let g:session_autoload = 'no'
 set sessionoptions=blank,curdir,folds,help,resize,tabpages,winsize
 map <leader>ss :mksession! ~/.vim/.session<cr>
 map <leader>sr :source ~/.vim/.session<cr>
-" Don't have YouCompleteMe ignore any files
-" (especially not Markdown!)
-" let g:ycm_filetypes_to_completely_ignore = {}
-" let g:ycm_complete_in_comments_and_strings = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:session_autosave = 'no'
 
+
+"*****************************************************************************
+" tmux
+"*****************************************************************************
+
+" Tmux cursor change
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 
 " Windows
 set guioptions-=T
@@ -484,7 +478,6 @@ set guioptions-=r
 set guioptions-=l
 set guioptions-=L
 set guioptions-=R
-
 
 " Mouse dragging of panes in tmux
 if &term =~ '^screen'
@@ -494,13 +487,10 @@ if &term =~ '^screen'
 endif
 
 
-set nofoldenable
+"*****************************************************************************
+" Trigger scripts
+"*****************************************************************************
 
-" Some vim plugin is fucking with my keyword definitions
-"au BufReadPost *.js setl iskeyword=@,48-57,_,192-255,$
-"au BufReadPost *.jsx setl iskeyword=@,48-57,_,192-255,$
-"au WinEnter *.css setl iskeyword=@,48-57,_,192-255,$
-"
 
 function! AddComponent(name, subpath)
   exe "!./scripts/add_component.js ".shellescape(a:name)." ".shellescape(a:subpath)
@@ -524,10 +514,3 @@ command! -nargs=1 AddComponent call AddComponent(<f-args>, "")
 command! -nargs=1 AddUIComponent call AddComponent(<f-args>, "ui")
 command! -nargs=1 BzAddComponent call BzAddComponent(<f-args>, "")
 command! -nargs=1 RGAddComponent call RGAddComponent(<f-args>, "")
-
-"let g:neocomplete#enable_at_startup = 1
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
