@@ -104,6 +104,10 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 " GUI
 "*****************************************************************************
 
+" Enable mouse in all modes
+set mouse+=a
+set ttymouse=xterm2
+set ttyfast
 
 set t_Co=256
 set visualbell
@@ -481,7 +485,6 @@ set guioptions-=R
 if &term =~ '^screen'
   set mouse+=a
   " tmux knows the extended mouse mode
-  set ttymouse=xterm2
 endif
 
 
