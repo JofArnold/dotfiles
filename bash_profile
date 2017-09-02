@@ -39,18 +39,23 @@ export TERM='xterm-256color'
 if [ $(id -u) -eq 0 ];
 then # you are root, set red colour prompt
   # This one includes the directory. Ditched that due to having dir in tabs now
-  # PS1="\e[0;31m\W $\e[m "
-  PS1="\e[0;31m$\e[m "
+  PS1="\e[0;31m\W $\e[m "
+  #PS1="\e[0;31m$\e[m "
 else # normal
   #PS1="\e[0;32m\$ \e[m"
   #PS1="\e[0;31m\$ \e[m"
   #PS1="\e[0;31m\$ \e[m"
-  #PS1="\e[0;31m \$ \e[m" 
-  PS1="$ "
+  #PS1="\e[0;31m \$ \e[m"
+  PS1="\[$txtred\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\$ "
+  #PS1="\e[0;31m\W\e[m \[$txtcyn\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\$ "
 fi
 
-PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
-
+#PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # Initialize rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Nice ls colors
+export CLICOLOR=1
+export LSCOLORS=exfxcxdxbxegedabagacad
+
