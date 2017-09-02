@@ -2,27 +2,31 @@
 export PATH=$PATH:/usr/local/Cellar/mysql/5.6.10/bin/mysql
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:usr/bin:$PATH"
 export RBENV_ROOT=/usr/local/var/rbenv
+export PATH=$PATH:$HOME/Library/Python/2.7/bin/
 #export PATH="/node_modules/.bin"
+#export PATH="/usr/local/share/npm/lib/node_modules/coffee-script/bin/:$PATH"
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
 
 # git
-alias gs="git status "
-alias ga="git add "
-alias gb="git branch "
-alias gc="git commit"
-alias gcm="git commit -m"
-alias gd="git diff"
-alias go="git checkout "
-alias gk="gitk --all&"
-alias gx="gitx --all"
-alias glog="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
-alias gh="git hist"
-alias gp="git pull --rebase"
-alias gca="git commit -a"
-alias got="git "
-alias get="git "
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias go='git checkout '
+alias gr='git reset '
+alias gt='git tag '
+alias gr='git rebase '
+alias gri='git rebase -i '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+alias ghurl='git ghurl'
+alias gpu='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpupr='git push -u origin $(git rev-parse --abbrev-ref HEAD) && open $(ghurl)/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1'
+alias gpr='git pull --rebase'
 
-# dev shortcuts
-alias c4l="cd ~/Dev/Clients/c4l-smart-restart/"
 
 # rebuild OpenWith
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
@@ -59,3 +63,18 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxegedabagacad
 
+##
+# Your previous /Users/cody/.bash_profile file was backed up as /Users/cody/.bash_profile.macports-saved_2015-04-12_at_18:37:47
+##
+
+# MacPorts Installer addition on 2015-04-12_at_18:37:47: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+# mkdir, cd into it
+mkcd () {
+mkdir -p "$*"
+cd "$*"
+}
+
+alias esinit='yarn add eslint babel-eslint eslint-cli eslint-config-prettier eslint-plugin-prettier eslint-plugin-react prettier && curl https://raw.githubusercontent.com/JofArnold/dotfiles/master/eslintrc.js -o .eslintrc.js && eslint_d stop && eslint_d start'
