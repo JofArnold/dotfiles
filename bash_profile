@@ -43,14 +43,14 @@ export TERM='xterm-256color'
 if [ $(id -u) -eq 0 ];
 then # you are root, set red colour prompt
   # This one includes the directory. Ditched that due to having dir in tabs now
-  PS1="\e[0;31m\W $\e[m "
+  PS1="💥  \e[0;31m\W $\e[m "
   #PS1="\e[0;31m$\e[m "
 else # normal
   #PS1="\e[0;32m\$ \e[m"
   #PS1="\e[0;31m\$ \e[m"
   #PS1="\e[0;31m\$ \e[m"
   #PS1="\e[0;31m \$ \e[m"
-  PS1="\[$txtred\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\$ "
+  PS1="\W 💃  \[$txtred\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]👉  "
   #PS1="\e[0;31m\W\e[m \[$txtcyn\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\$ "
 fi
 
@@ -81,3 +81,5 @@ cd "$*"
 }
 
 alias esinit='yarn add eslint babel-eslint eslint-cli eslint-config-prettier eslint-plugin-prettier eslint-plugin-react prettier && curl https://raw.githubusercontent.com/JofArnold/dotfiles/master/eslintrc.js -o .eslintrc.js && eslint_d stop && eslint_d start'
+
+export PATH="$HOME/.cargo/bin:$PATH"
