@@ -111,8 +111,6 @@ set visualbell
 set smartindent
 
 syntax on
-g:onedark_termcolors
-g:onedark_terminal_italics = 1
 colorscheme onedark
 
 " Sensible long lines
