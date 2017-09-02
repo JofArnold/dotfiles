@@ -63,6 +63,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxegedabagacad
 
+# Sane open file limits
+ulimit -n 2560
+
 ##
 # Your previous /Users/cody/.bash_profile file was backed up as /Users/cody/.bash_profile.macports-saved_2015-04-12_at_18:37:47
 ##
