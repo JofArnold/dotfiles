@@ -103,6 +103,10 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 "*****************************************************************************
 " GUI
 "*****************************************************************************
+"
+" Don't unload buffers when switching (preserves undo history):
+set hidden
+
 
 " Make Gdiff view side by site:
 set diffopt+=vertical
@@ -447,9 +451,6 @@ nnoremap <leader>ml mLya]Go: <Esc>0P`L
 nnoremap <leader>mL mLya]Go: <Esc>"*p0P`L
 nnoremap <leader>bd :b#<bar>bd#<CR>
 "
-" Don't unload buffers when switching (preserves undo history):
-set hidden
-
 
 "*****************************************************************************
 " Vim Sessions
