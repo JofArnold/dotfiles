@@ -104,6 +104,9 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 " GUI
 "*****************************************************************************
 
+" Make Gdiff view side by site:
+set diffopt+=vertical
+"
 " Enable mouse in all modes
 set mouse+=a
 set ttymouse=xterm2
