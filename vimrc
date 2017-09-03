@@ -28,7 +28,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'xolox/vim-misc'
 Plug 'jparise/vim-graphql'
-Plug 'xolox/vim-session'
+" Plug 'xolox/vim-session'
 Plug 'terryma/vim-multiple-cursors'
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
@@ -38,6 +38,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'JofArnold/vim-template-literal'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'thaerkh/vim-workspace'
 Plug 'sbdchd/neoformat'
 
 let g:neoformat_enabled_javascript = ['eslint_d']
@@ -302,7 +303,7 @@ nmap <silent> <leader>cd :lcd %:h<CR>
 
 " Reload vimrc; install plug
 nmap <silent> <leader>rc :so ~/.vimrc \| :PlugInstall<CR>
-"
+
 " Sensible windows navigation (versus the painful <C-W>hjkl version)
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
@@ -314,6 +315,7 @@ set backspace=indent,eol,start
 "
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
+
 
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
@@ -451,13 +453,15 @@ set hidden
 "*****************************************************************************
 
 
+nmap <leader>ww :ToggleWorkspace<CR>
+
 " ignore 'options' because of latex-suite (would be pointless to save that!)
 
-let g:session_autoload = 'no'
-set sessionoptions=blank,curdir,folds,help,resize,tabpages,winsize
-map <leader>ss :mksession! ~/.vim/.session<cr>
-map <leader>sr :source ~/.vim/.session<cr>
-let g:session_autosave = 'no'
+" let g:session_autoload = 'yes'
+" set sessionoptions=blank,curdir,folds,help,resize,tabpages,winsize
+" map <leader>ss :mksession! ~/.vim/.session<cr>
+" map <leader>sr :source ~/.vim/.session<cr>
+" let g:session_autosave = 'yes'
 
 
 "*****************************************************************************
