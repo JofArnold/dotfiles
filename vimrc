@@ -29,7 +29,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'xolox/vim-misc'
 Plug 'jparise/vim-graphql'
-" Plug 'xolox/vim-session'
 Plug 'terryma/vim-multiple-cursors'
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
@@ -484,14 +483,6 @@ nnoremap <leader>bd :b#<bar>bd#<CR>
 
 
 nmap <leader>ww :ToggleWorkspace<CR>
-
-" ignore 'options' because of latex-suite (would be pointless to save that!)
-
-" let g:session_autoload = 'yes'
-" set sessionoptions=blank,curdir,folds,help,resize,tabpages,winsize
-" map <leader>ss :mksession! ~/.vim/.session<cr>
-" map <leader>sr :source ~/.vim/.session<cr>
-" let g:session_autosave = 'yes'
 
 
 "*****************************************************************************
