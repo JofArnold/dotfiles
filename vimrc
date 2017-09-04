@@ -20,6 +20,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-ragtag'
@@ -90,6 +91,31 @@ let g:neomake_info_sign= {'text': '💩'}
 set nowritebackup
 
 set path=.,**,,
+
+"*****************************************************************************
+" Fugitive/Git
+"*****************************************************************************
+
+
+" Make fugitive work in new tabs
+autocmd BufWinEnter * if empty(expand('<afile>'))|call fugitive#detect(getcwd())|endif
+
+" Fugitive and general diff and git shortcuts
+nmap <leader>gs :Gstatus<CR>
+vmap <leader>gs :Gstatus<CR>
+nmap <leader>ge :Gedit<CR>
+vmap <leader>ge :Gedit<CR>
+nmap <leader>gl :Glog -- %<CR>
+vmap <leader>ge :Glog -- %<CR>
+nmap <leader>gc :Gitcommit<CR>
+vmap <leader>gc :Gitcommit<CR>
+nmap <leader>gd :Gdiff<CR>
+vmap <leader>gd :Gdiff<CR>
+
+nmap <leader>dp :diffput<CR>
+vmap <leader>dp :diffput<CR>
+nmap <leader>dg :diffget<CR>
+vmap <leader>dg :diffget<CR>
 
 
 "*****************************************************************************
