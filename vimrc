@@ -30,9 +30,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'xolox/vim-misc'
 Plug 'jparise/vim-graphql'
 Plug 'terryma/vim-multiple-cursors'
-let g:multi_cursor_exit_from_visual_mode = 0
-let g:multi_cursor_exit_from_insert_mode = 0
-let g:multi_cursor_insert_maps={ "\<C-r>": 1 }
 Plug 'junegunn/vim-emoji'
 Plug 'wakatime/vim-wakatime'
 Plug 'michaeljsmith/vim-indent-object'
@@ -324,8 +321,12 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 "*****************************************************************************
 " Keys
 "*****************************************************************************
-"
-"
+
+" Multiple cursors
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
+let g:multi_cursor_insert_maps={ "\<C-r>": 1 }
+
 " Auto-bracketing
 " inoremap ( ()<Esc>i
 " inoremap [ []<Esc>i
