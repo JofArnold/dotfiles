@@ -38,8 +38,8 @@ Plug 'wakatime/vim-wakatime'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'JofArnold/vim-template-literal'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'thaerkh/vim-workspace'
 Plug 'sbdchd/neoformat'
+Plug 'xolox/vim-session'
 
 let g:neoformat_enabled_javascript = ['eslint_d']
 augroup neoformat_group
@@ -59,7 +59,6 @@ Plug 'benekastah/neomake'
 nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
 " Autofix visual selection with eslint_d:
 vnoremap <leader>f :!eslint_d --stdin --fix-to-stdout<CR>gv
-
 
 call plug#end()
 
@@ -491,7 +490,46 @@ nnoremap <leader>bd :b#<bar>bd#<CR>
 "*****************************************************************************
 
 
-nmap <leader>ww :ToggleWorkspace<CR>
+function! MakeSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  if (filewritable(b:sessiondir) != 2)
+    exe 'silent !mkdir -p ' b:sessiondir
+    redraw!
+  endif
+  let b:filename = b:sessiondir . '/session.vim'
+  exe "mksession! " . b:filename
+endfunction
+
+function! LoadSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let b:sessionfile = b:sessiondir . "/session.vim"
+  if (filereadable(b:sessionfile))
+    exe 'source ' b:sessionfile
+  else
+    echo "No session loaded."
+  endif
+endfunction
+
+function! MakeSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  if (filewritable(b:sessiondir) != 2)
+    exe 'silent !mkdir -p ' b:sessiondir
+    redraw!
+  endif
+  let b:filename = b:sessiondir . '/session.vim'
+  exe "mksession! " . b:filename
+endfunction
+
+" nmap <leader>ss :call MakeSession()<CR>
+" nmap <leader>ls :call LoadSession()<CR>
+nmap <leader>os :OpenSession
+nmap <leader>ss :SaveSession
+" nmap <leader>os :GitSessionSave<CR>
+" nmap <leader>ss :GitSessionLoad<CR>
+"au VimEnter * nested :call LoadSession()
+"au VimLeave * :call MakeSession()
+
+
 
 
 "*****************************************************************************
