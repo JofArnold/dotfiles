@@ -1,14 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'JofArnold/vim-template-literal'
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plug 'Valloric/MatchTagAlways'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'JofArnold/vim-template-literal'
 Plug 'joshdick/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'jparise/vim-graphql'
@@ -35,6 +32,10 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'Valloric/MatchTagAlways'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'wakatime/vim-wakatime'
 Plug 'wavded/vim-stylus'
@@ -120,10 +121,16 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 "*****************************************************************************
 " GUI
 "*****************************************************************************
-"
+
+
+" Airline config
+let g:airline_theme='powerlineish'
+"let g:airline_section_z=''
+let g:airline_powerline_fonts = 1
+
+
 " Don't unload buffers when switching (preserves undo history):
 set hidden
-
 
 " Make Gdiff view side by site:
 set diffopt+=vertical
@@ -172,15 +179,7 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 set nowritebackup
 set path=.,**,,
 
-
-"*****************************************************************************
-" Powerline
-"*****************************************************************************
-
 set laststatus=2
-let g:powerline_symbols = 'unicode'
-let g:powerline_dividers_override = ['>>', '>', '<<', '<']
-let g:powerline_theme = 'solarized256'
 
 
 "*****************************************************************************
