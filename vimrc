@@ -1,42 +1,54 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'digitaltoad/vim-jade'
-Plug 'wavded/vim-stylus'
-Plug 'joshdick/onedark.vim'
+Plug 'JofArnold/vim-template-literal'
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'kchmck/vim-coffee-script'
-Plug 'pangloss/vim-javascript'
-Plug 'kien/ctrlp.vim'
-Plug 'mtscout6/vim-cjsx'
+Plug 'benjie/neomake-local-eslint.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
-Plug 'wavded/vim-stylus'
-let g:jsx_ext_required = 0
+Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'joshdick/onedark.vim'
+Plug 'jparise/vim-graphql'
+Plug 'jparise/vim-graphql'
+Plug 'junegunn/vim-emoji'
+Plug 'kchmck/vim-coffee-script'
+Plug 'kien/ctrlp.vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
+Plug 'sbdchd/neoformat'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-ragtag'
-let g:ragtag_global_maps = 1
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'xolox/vim-misc'
-Plug 'jparise/vim-graphql'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/vim-emoji'
+Plug 'w0rp/ale'
 Plug 'wakatime/vim-wakatime'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'JofArnold/vim-template-literal'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'sbdchd/neoformat'
+Plug 'wavded/vim-stylus'
+Plug 'wavded/vim-stylus'
+Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+
+call plug#end()
+
+
+"*****************************************************************************
+" Linting
+"*****************************************************************************
+
 
 let g:neoformat_enabled_javascript = ['eslint_d']
 let g:neoformat_enabled_css = ['prettier']
@@ -45,11 +57,6 @@ augroup neoformat_group
   autocmd!
   autocmd BufWritePre *.js,*.jsx,*.css,*.scss silent Neoformat
 augroup END
-
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.vim'] }
-Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.vim'] }
 
 " Linting
 let g:neomake_javascript_enabled_makers = ['eslint_d']
@@ -279,6 +286,8 @@ au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 "*****************************************************************************
 
 
+let g:jsx_ext_required = 0
+
 au ColorScheme *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=red guibg=red
 " au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} setlocal spell spelllang=en
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
@@ -337,6 +346,9 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 "*****************************************************************************
 " Keys
 "*****************************************************************************
+
+" Tag closing
+let g:ragtag_global_maps = 1
 
 " Multiple cursors
 let g:multi_cursor_exit_from_visual_mode = 0
