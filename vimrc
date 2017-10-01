@@ -83,35 +83,6 @@ let g:ale_echo_msg_format = '%linter% says %s'
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 
-
-"*****************************************************************************
-" Neomake
-"*****************************************************************************
-
-
-" let g:neomake_javascript_enabled_makers = ['eslint_d']
-" let g:neomake_jsx_enabled_makers = ['eslint_d']
-" autocmd! BufWritePost *.js,*.jsx silent NeomakeFile
-" autocmd! BufWinEnter *.js,*.jsx silent NeomakeFile
-" let g:neomake_coffee_enabled_makers = ['coffeelint']
-" let g:neomake_cjsx_enabled_makers = ['coffeelint']
-" autocmd! BufWritePost *.coffee,*.cjsx silent NeomakeFile
-" autocmd! BufWinEnter *.coffee,*.cjsx silent NeomakeFile
-" let g:neomake_ruby_rubocop_args = ['--format', 'emacs', '-D']
-" let g:neomake_ruby_enabled_makers = ['rubocop']
-" autocmd! BufWritePost *.rb silent NeomakeFile
-" autocmd! BufWinEnter *.rb silent NeomakeFile
-" let g:neomake_list_height = 5
-"
-" let g:neomake_warning_sign = {'text': '💩'}
-" let g:neomake_error_sign = {'text': '💩'}
-" let g:neomake_message_sign = {'text': '💩'}
-" let g:neomake_info_sign= {'text': '💩'}
-"
-set nowritebackup
-
-set path=.,**,,
-
 "*****************************************************************************
 " Fugitive/Git
 "*****************************************************************************
@@ -197,6 +168,9 @@ set guifont=Monaco\ For\ Powerline:h13
 
 set nocompatible   " Disable vi-compatibility
 set encoding=utf-8 " Necessary to show Unicode glyphs
+
+set nowritebackup
+set path=.,**,,
 
 
 "*****************************************************************************
