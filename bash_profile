@@ -26,6 +26,8 @@ alias ghurl='git ghurl'
 alias gpu='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
 alias gpupr='git push -u origin $(git rev-parse --abbrev-ref HEAD) && open $(ghurl)/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1'
 alias gpr='git pull --rebase'
+alias gmt='git mergetool '
+alias gcp='git commit -p'
 
 
 # rebuild OpenWith
