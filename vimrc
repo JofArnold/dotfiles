@@ -42,9 +42,11 @@ Plug 'sbdchd/neoformat'
 Plug 'xolox/vim-session'
 
 let g:neoformat_enabled_javascript = ['eslint_d']
+let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_scss = ['prettier']
 augroup neoformat_group
   autocmd!
-  autocmd BufWritePre *.js,*.jsx silent Neoformat
+  autocmd BufWritePre *.js,*.jsx,*.css,*.scss silent Neoformat
 augroup END
 
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
