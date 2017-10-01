@@ -325,6 +325,14 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 "*****************************************************************************
 "
 "
+" Auto-bracketing
+" inoremap ( ()<Esc>i
+" inoremap [ []<Esc>i
+" inoremap ' ''<Esc>i
+" inoremap ` ``<Esc>i
+" inoremap { {}<Esc>i
+" inoremap < <><Esc>i
+
 " jumping around files with gf
 autocmd filetype jade setl suffixesadd=.jade
 autocmd filetype stylus setl suffixesadd=.styl
