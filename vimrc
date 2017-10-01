@@ -138,8 +138,8 @@ set diffopt+=vertical
 "
 " Enable mouse in all modes
 set mouse+=a
-set ttymouse=xterm2
-set ttyfast
+" set ttymouse=xterm2
+"  set ttyfast
 
 set t_Co=256
 set visualbell
@@ -274,6 +274,8 @@ au BufNewFile,BufRead *.styl set filetype=stylus
 highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
 highlight ExtraWhitespace ctermfg=yellow guibg=yellow
 
+" hi SpellBad guifg='#E06C75' ,{ 'gui 'fg': s:red, 'gui': 'underline', 'cterm': 'underline' }) ' Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
+" { 'gui': '#E06C75', 'cterm': '204', 'cterm16': '1' }),
 " Only match whitespace when not in insert mode
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -315,8 +317,7 @@ let Tlist_Auto_Update = 'true'
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 
 "spell check when writing commit logs
-autocmd filetype svn,*commit* set spell
-
+"autocmd filetype svn,*commit* set spell
 
 
 "*****************************************************************************
