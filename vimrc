@@ -125,7 +125,8 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 
 " Airline config
 let g:airline_theme='powerlineish'
-"let g:airline_section_z=''
+let g:airline_section_x=0
+let g:airline_section_y=0
 let g:airline_powerline_fonts = 1
 
 
