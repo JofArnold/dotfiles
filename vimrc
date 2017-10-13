@@ -1,16 +1,15 @@
 call plug#begin('~/.vim/plugged')
 
+"Plug 'tpope/vim-commentary'
+"Plug 'tpope/vim-dispatch'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'JofArnold/vim-template-literal'
 Plug 'joshdick/onedark.vim'
 Plug 'jparise/vim-graphql'
-Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
-Plug 'kchmck/vim-coffee-script'
 Plug 'kien/ctrlp.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'mtscout6/vim-cjsx'
@@ -20,10 +19,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'sbdchd/neoformat'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-abolish' " Needed for Subvert
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
@@ -37,9 +33,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-Plug 'wakatime/vim-wakatime'
-Plug 'wavded/vim-stylus'
-Plug 'wavded/vim-stylus'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
@@ -83,31 +76,6 @@ let g:ale_echo_msg_format = '%linter% says %s'
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
-
-"*****************************************************************************
-" Fugitive/Git
-"*****************************************************************************
-
-
-" Make fugitive work in new tabs
-autocmd BufWinEnter * if empty(expand('<afile>'))|call fugitive#detect(getcwd())|endif
-
-" Fugitive and general diff and git shortcuts
-nmap <leader>gs :Gstatus<CR>
-vmap <leader>gs :Gstatus<CR>
-nmap <leader>ge :Gedit<CR>
-vmap <leader>ge :Gedit<CR>
-nmap <leader>gl :Glog -- %<CR>
-vmap <leader>ge :Glog -- %<CR>
-nmap <leader>gc :Gitcommit<CR>
-vmap <leader>gc :Gitcommit<CR>
-nmap <leader>gd :Gdiff<CR>
-vmap <leader>gd :Gdiff<CR>
-
-nmap <leader>dp :diffput<CR>
-vmap <leader>dp :diffput<CR>
-nmap <leader>dg :diffget<CR>
-vmap <leader>dg :diffget<CR>
 
 
 "*****************************************************************************
@@ -187,6 +155,7 @@ set laststatus=2
 " ctrlp
 "*****************************************************************************
 
+
 " use ctrpl settings
 let g:ctrlp_clear_cache_on_exit=0
 " Have CtrlP use Vim's cwd not it's smarty pants stuff.
@@ -210,7 +179,7 @@ set smartcase
 nnoremap <C-H> :noh<cr>
 "
 " Pattern ignore when use the completion in search file
-set wig=*.o,*.obj,*~,#*#,*.pyc,*.tar*,*.avi,*.ogg,*.mp3
+"set wig=*.o,*.obj,*~,#*#,*.pyc,*.tar*,*.avi,*.ogg,*.mp3
 
 " Ag
 if executable('ag')
@@ -224,9 +193,9 @@ if executable('ag')
 endif
 
 " Tab completion
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+"set wildmode=list:longest,list:full
+"set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+"set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 
 "*****************************************************************************
@@ -234,7 +203,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 "*****************************************************************************
 
 
-filetype plugin on
+"filetype plugin on
 
 " Yaml Configuration
 au BufRead,BufNewFile *.{yml,yaml}
@@ -245,14 +214,8 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,Guardfile}    set ft=ruby
-
-" Mustache configuration
-au BufNewFile,BufRead *.mustache        setf mustache
-
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+"au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
 
 "*****************************************************************************
@@ -270,18 +233,6 @@ au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead *.styl set filetype=stylus
 highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
 highlight ExtraWhitespace ctermfg=yellow guibg=yellow
-
-" hi SpellBad guifg='#E06C75' ,{ 'gui 'fg': s:red, 'gui': 'underline', 'cterm': 'underline' }) ' Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
-" { 'gui': '#E06C75', 'cterm': '204', 'cterm16': '1' }),
-" Only match whitespace when not in insert mode
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
-" Syntax highlighting for things that should probably not be in the file
-au BufRead,BufNewFile * syn keyword DebugCommands console log alert
 
 if has("mac")
   let g:gist_clip_command = 'pbcopy'
@@ -301,20 +252,8 @@ set nowb
 set noswapfile
 set noar
 
-" Delete all whitespace in end of line
-autocmd BufWritePre *.{coffee,js} :%s/\s\+$//e
-
-" Autocomplete Fabricator gem
-autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
-
-" Autocomplete Fabricator gem
-autocmd User Rails Rnavcommand decorator app/decorators -suffix=_decorator.rb -default=model()
-
 let Tlist_Auto_Update = 'true'
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-
-"spell check when writing commit logs
-"autocmd filetype svn,*commit* set spell
 
 
 "*****************************************************************************
@@ -329,17 +268,9 @@ let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_insert_maps={ "\<C-r>": 1 }
 
-" Auto-bracketing
-" inoremap ( ()<Esc>i
-" inoremap [ []<Esc>i
-" inoremap ' ''<Esc>i
-" inoremap ` ``<Esc>i
-" inoremap { {}<Esc>i
-" inoremap < <><Esc>i
-
 " jumping around files with gf
 autocmd filetype jade setl suffixesadd=.jade
-autocmd filetype stylus setl suffixesadd=.styl
+autocmd filetype scss setl suffixesadd=.scss
 autocmd filetype javascript setl suffixesadd=.coffee,.litcoffee,.cjsx,.js,.json,.jsx
 autocmd filetype coffee setl suffixesadd=.coffee,.litcoffee,.cjsx,.js,.json,.jsx
 
@@ -525,21 +456,14 @@ function! MakeSession()
   exe "mksession! " . b:filename
 endfunction
 
-" nmap <leader>ss :call MakeSession()<CR>
-" nmap <leader>ls :call LoadSession()<CR>
 nmap <leader>os :OpenSession
 nmap <leader>ss :SaveSession
-" nmap <leader>os :GitSessionSave<CR>
-" nmap <leader>ss :GitSessionLoad<CR>
-"au VimEnter * nested :call LoadSession()
-"au VimLeave * :call MakeSession()
-
-
 
 
 "*****************************************************************************
 " tmux
 "*****************************************************************************
+
 
 " Tmux cursor change
 if exists('$TMUX')
