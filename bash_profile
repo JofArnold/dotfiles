@@ -1,4 +1,5 @@
 #!/bin/bash
+export IGNOREEOF=5
 export PATH=$PATH:/usr/local/Cellar/mysql/5.6.10/bin/mysql
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:usr/bin:$PATH"
 export RBENV_ROOT=/usr/local/var/rbenv
