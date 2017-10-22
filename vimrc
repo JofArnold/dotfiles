@@ -6,7 +6,9 @@ Plug 'benjie/neomake-local-eslint.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
+Plug 'honza/vim-snippets'
 Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'JofArnold/vim-react-snippets'
 Plug 'joshdick/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
@@ -18,6 +20,7 @@ Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'sbdchd/neoformat'
+Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish' " Needed for Subvert
 Plug 'tpope/vim-eunuch'
@@ -90,6 +93,17 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 " GUI
 "*****************************************************************************
 
+" Utilsnips expand
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+" Make YouCompleteMe slightly less unruly
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_invoke_completion = ''
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_max_num_candidates = 10
 
 " Airline config
 let g:airline_theme='powerlineish'
