@@ -4,20 +4,20 @@ call plug#begin('~/.vim/plugged')
 "Plug 'tpope/vim-dispatch'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'digitaltoad/vim-jade'
+"Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'honza/vim-snippets'
-Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'JofArnold/vim-react-snippets'
 Plug 'joshdick/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
 Plug 'kien/ctrlp.vim'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'mtscout6/vim-cjsx'
-Plug 'mxw/vim-jsx'
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'pangloss/vim-javascript'
+"Plug 'mtscout6/vim-cjsx'
+"Plug 'mxw/vim-jsx'
+"Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'sbdchd/neoformat'
 Plug 'SirVer/ultisnips'
@@ -28,7 +28,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-rhubarb'
+" Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'Valloric/MatchTagAlways'
@@ -38,6 +38,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+
+Plug 'chemzqm/vim-jsx-improve'
+"Plug 'MaxMEllon/vim-jsx-pretty'
 
 call plug#end()
 
