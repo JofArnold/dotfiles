@@ -16,6 +16,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'michaeljsmith/vim-indent-object'
 "Plug 'mtscout6/vim-cjsx'
 "Plug 'mxw/vim-jsx'
+Plug 'Olical/vim-enmasse'
 "Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 "Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
