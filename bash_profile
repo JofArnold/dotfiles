@@ -83,6 +83,6 @@ mkdir -p "$*"
 cd "$*"
 }
 
-alias esinit='yarn add eslint babel-eslint eslint-cli eslint-config-prettier eslint-plugin-prettier eslint-plugin-react prettier && curl https://raw.githubusercontent.com/JofArnold/dotfiles/master/eslintrc.js -o .eslintrc.js && eslint_d stop && eslint_d start'
+alias esinit='yarn add eslint babel-eslint eslint-cli eslint-config-prettier eslint-plugin-prettier eslint-plugin-react prettier --dev && curl https://raw.githubusercontent.com/JofArnold/dotfiles/master/eslintrc.js -o .eslintrc.js && eslint_d stop && eslint_d start'
 
 export PATH="$HOME/.cargo/bin:$PATH"
