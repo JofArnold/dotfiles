@@ -7,6 +7,7 @@ Plug 'christoomey/vim-tmux-navigator'
 "Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'honza/vim-snippets'
+Plug 'flowtype/vim-flow', { 'autoload' : {'filetypes': 'javascript'} }
 "Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'JofArnold/vim-react-snippets'
 Plug 'joshdick/onedark.vim'
@@ -50,6 +51,8 @@ call plug#end()
 " Linting
 "*****************************************************************************
 
+let g:flow#autoclose = 1
+let g:flow#showquickfix = 0
 
 let g:neoformat_enabled_javascript = ['eslint_d']
 let g:neoformat_enabled_css = ['prettier']
