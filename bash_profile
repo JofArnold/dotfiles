@@ -86,3 +86,6 @@ cd "$*"
 alias esinit='yarn add eslint babel-eslint eslint-cli eslint-config-prettier eslint-plugin-prettier eslint-plugin-react prettier --dev && curl https://raw.githubusercontent.com/JofArnold/dotfiles/master/eslintrc.js -o .eslintrc.js && eslint_d stop && eslint_d start'
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
