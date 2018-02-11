@@ -30,6 +30,10 @@ alias gpr='git pull --rebase'
 alias gmt='git mergetool '
 alias gcp='git commit -p'
 
+# database stuff
+alias nr='npm_config_loglevel=silent npm run'
+alias migrate='nr db:migrate:dev'
+alias rollback='nr db:rollback:dev'
 
 # rebuild OpenWith
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
