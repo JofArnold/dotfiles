@@ -10,7 +10,7 @@ Plug 'honza/vim-snippets'
 Plug 'flowtype/vim-flow', { 'autoload' : {'filetypes': 'javascript'} }
 "Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'JofArnold/vim-react-snippets'
-Plug 'joshdick/onedark.vim'
+Plug 'jofarnold/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
 Plug 'kien/ctrlp.vim'
@@ -280,6 +280,9 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 "*****************************************************************************
 " Keys
 "*****************************************************************************
+
+" Jump around HTML tags using %
+packadd! matchit
 
 " Tag closing
 let g:ragtag_global_maps = 1
