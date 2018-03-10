@@ -130,11 +130,12 @@ set hidden
 
 " Make Gdiff view side by site:
 set diffopt+=vertical
+
+" Get C+P working with yank
+set  clipboard+=unnamed
 "
 " Enable mouse in all modes
 set mouse+=a
-" set ttymouse=xterm2
-"  set ttyfast
 
 set t_Co=256
 set visualbell
@@ -152,7 +153,7 @@ set formatoptions=qrn1
 " Show invisble chars
 set list
 set listchars=tab:▸\ ,eol:¬
-set linespace=1
+set linespace=2
 "
 " Better tabs
 set tabstop=2
@@ -258,7 +259,7 @@ au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitesp
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} match ExtraWhitespace /\s\+$\|\t/
 au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead *.styl set filetype=stylus
-highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
+"highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
 highlight ExtraWhitespace ctermfg=yellow guibg=yellow
 
 if has("mac")
@@ -311,10 +312,10 @@ nmap <silent> <leader>cd :lcd %:h<CR>
 nmap <silent> <leader>rc :so ~/.vimrc \| :PlugInstall<CR>
 
 " Sensible windows navigation (versus the painful <C-W>hjkl version)
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+" nmap <silent> <A-Up> :wincmd k<CR>
+" nmap <silent> <A-Down> :wincmd j<CR>
+" nmap <silent> <A-Left> :wincmd h<CR>
+" nmap <silent> <A-Right> :wincmd l<CR>
 "
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
