@@ -240,6 +240,7 @@ endif
 " File handling
 "*****************************************************************************
 
+let NERDTreeShowHidden=1
 
 "filetype plugin on
 
