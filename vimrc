@@ -1,27 +1,35 @@
 call plug#begin('~/.vim/plugged')
 
+
+" Plug 'chrisbra/Colorizer'
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'tpope/vim-rhubarb'
+"Plug 'digitaltoad/vim-jade'
+"Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'MaxMEllon/vim-jsx-pretty'
+"Plug 'mtscout6/vim-cjsx'
+"Plug 'mxw/vim-jsx'
+"Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'pangloss/vim-javascript'
 "Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-dispatch'
 Plug 'benjie/neomake-local-eslint.vim'
+Plug 'chemzqm/vim-jsx-improve'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'digitaltoad/vim-jade'
+Plug 'elixir-editors/vim-elixir'
 Plug 'elzr/vim-json'
-Plug 'honza/vim-snippets'
 Plug 'flowtype/vim-flow', { 'autoload' : {'filetypes': 'javascript'} }
-"Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'honza/vim-snippets'
+Plug 'JofArnold/onedark.vim'
 Plug 'JofArnold/vim-react-snippets'
-Plug 'jofarnold/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
 Plug 'kien/ctrlp.vim'
 Plug 'michaeljsmith/vim-indent-object'
-"Plug 'mtscout6/vim-cjsx'
-"Plug 'mxw/vim-jsx'
 Plug 'Olical/vim-enmasse'
-"Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
-"Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'sbdchd/neoformat'
+Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish' " Needed for Subvert
@@ -30,7 +38,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-ragtag'
-" Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'Valloric/MatchTagAlways'
@@ -40,9 +47,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-
-Plug 'chemzqm/vim-jsx-improve'
-"Plug 'MaxMEllon/vim-jsx-pretty'
 
 call plug#end()
 
