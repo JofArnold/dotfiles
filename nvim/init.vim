@@ -133,11 +133,12 @@ set hidden
 
 " Make Gdiff view side by site:
 set diffopt+=vertical
+
+" Get C+P working with yank
+set  clipboard+=unnamed
 "
 " Enable mouse in all modes
 set mouse+=a
-" set ttymouse=xterm2
-"  set ttyfast
 
 "set t_Co=256
 " gui colors if running iTerm
@@ -268,6 +269,7 @@ au BufNewFile,BufRead *.styl set filetype=stylus
 "highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
 highlight ExtraWhitespace ctermfg=yellow guibg=yellow
 
+let g:gist_clip_command = 'pbcopy'
 if has("mac")
   let g:gist_clip_command = 'pbcopy'
 elseif has("unix")
@@ -523,7 +525,6 @@ if &term =~ '^screen'
   set mouse+=a
   " tmux knows the extended mouse mode
 endif
-
 
 "*****************************************************************************
 " Trigger scripts
