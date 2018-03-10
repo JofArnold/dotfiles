@@ -81,6 +81,7 @@ nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
 vnoremap <leader>f :!eslint_d --stdin --fix-to-stdout<CR>gv
 
 let g:ale_linters = {
+\  'elixir': [],
 \  'javascript': ['flow', 'eslint']
 \}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
