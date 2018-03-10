@@ -44,6 +44,7 @@ Plug 'xolox/vim-session'
 
 Plug 'chemzqm/vim-jsx-improve'
 "Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'othree/html5.vim'
 
 call plug#end()
 
