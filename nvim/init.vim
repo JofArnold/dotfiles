@@ -1,16 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
-
-" Plug 'tpope/vim-rhubarb'
-"Plug 'digitaltoad/vim-jade'
-"Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
-"Plug 'MaxMEllon/vim-jsx-pretty'
-"Plug 'mtscout6/vim-cjsx'
-"Plug 'mxw/vim-jsx'
-"Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
-"Plug 'pangloss/vim-javascript'
-"Plug 'tpope/vim-commentary'
-"Plug 'tpope/vim-dispatch'
+Plug 'JofArnold/onedark.vim'
+Plug 'JofArnold/vim-react-snippets'
+Plug 'Olical/vim-enmasse'
+Plug 'SirVer/ultisnips'
+Plug 'Valloric/MatchTagAlways'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'christoomey/vim-tmux-navigator'
@@ -18,17 +12,14 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'elzr/vim-json'
 Plug 'flowtype/vim-flow', { 'autoload' : {'filetypes': 'javascript'} }
 Plug 'honza/vim-snippets'
-Plug 'JofArnold/onedark.vim'
-Plug 'JofArnold/vim-react-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
 Plug 'kien/ctrlp.vim'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'Olical/vim-enmasse'
+Plug 'othree/html5.vim'
 Plug 'rking/ag.vim'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree'
-Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish' " Needed for Subvert
 Plug 'tpope/vim-eunuch'
@@ -38,14 +29,12 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'Valloric/MatchTagAlways'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-Plug 'othree/html5.vim'
+Plug 'zerowidth/vim-copy-as-rtf'
 
 call plug#end()
 
