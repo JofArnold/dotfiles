@@ -230,6 +230,8 @@ endif
 "*****************************************************************************
 
 let NERDTreeShowHidden=1
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
 "filetype plugin on
 
