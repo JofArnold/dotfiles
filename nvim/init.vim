@@ -101,6 +101,11 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 " GUI
 "*****************************************************************************
 
+" Match splits to tmux... ish
+set fillchars+=vert:│
+hi VertSplit ctermfg=232 guifg=#AAAAAA
+
+
 " Utilsnips expand
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
