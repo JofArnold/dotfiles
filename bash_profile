@@ -96,5 +96,6 @@ alias esinit='yarn add eslint babel-eslint eslint-cli eslint-config-prettier esl
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+source ~/.bin/tmuxinator.bash
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
