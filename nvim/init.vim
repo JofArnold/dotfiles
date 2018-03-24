@@ -106,7 +106,6 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 
 " Match splits to tmux... ish
 set fillchars+=vert:│
-hi VertSplit ctermfg=232 guifg=#AAAAAA
 
 
 " Utilsnips expand
