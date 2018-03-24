@@ -45,7 +45,8 @@ alias e='nvim'
 
 # config terminal
 set -o vi
-export TERM='xterm-256color'
+#export TERM='xterm-256color'
+export TERM='screen-256color'
 #export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:usr/bin:$PATH"
 
 # If id command returns zero, you’ve root access.
