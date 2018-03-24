@@ -60,7 +60,9 @@ else # normal
   #PS1="\e[0;31m\$ \e[m"
   #PS1="\e[0;31m\$ \e[m"
   #PS1="\e[0;31m \$ \e[m"
-  PS1="\W 💃  \[$txtred\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]👉  "
+  # PS1="$(basename $(dirname $PWD))/$(basename $PWD)"
+  PS1=" \[$txtblu\]\w\e[0m \[$txtred\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\n \[$txtgrn\]$\[$txtrst\] "
+  # PS1=" \[$txtblu\]\e[4m\w\e[0m \e[2m\[$txtred\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\n \[$txtgrn\]$\[$txtrst\] "
   #PS1="\e[0;31m\W\e[m \[$txtcyn\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\$ "
 fi
 
