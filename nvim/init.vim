@@ -14,7 +14,7 @@ Plug 'flowtype/vim-flow', { 'autoload' : {'filetypes': 'javascript'} }
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'othree/html5.vim'
 Plug 'rking/ag.vim'
