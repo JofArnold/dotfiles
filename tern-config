@@ -1,0 +1,23 @@
+ {
+   "libs": [
+     "browser",
+     "react",
+     "ecma5",
+     "ecma6",
+     "ecma8",
+     "ecmascript"
+   ],
+   "plugins": {
+    "angularjs": {},
+    "commonjs": {},
+    "complete_strings": {},
+    "doc_comment": {},
+    "es_modules": {},
+    "modules": {},
+    "node":{},
+    "node_resolve":{},
+    "requirejs": {},
+    "webpack": {}
+   }
+ }
+
