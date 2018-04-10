@@ -53,7 +53,8 @@ export TERM='screen-256color'
 if [ $(id -u) -eq 0 ];
 then # you are root, set red colour prompt
   # This one includes the directory. Ditched that due to having dir in tabs now
-  PS1="💥  \e[0;31m\W $\e[m "
+  PS1="$(basename $(dirname $PWD))/$(basename $PWD)"
+  PS1="💥  \e[0;31m\w $\e[m "
   #PS1="\e[0;31m$\e[m "
 else # normal
   #PS1="\e[0;32m\$ \e[m"
@@ -65,6 +66,7 @@ else # normal
   # PS1=" \[$txtblu\]\e[4m\w\e[0m \e[2m\[$txtred\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\n \[$txtgrn\]$\[$txtrst\] "
   #PS1="\e[0;31m\W\e[m \[$txtcyn\]\$git_branch\[$txtcyn\]\$git_dirty\[$txtrst\]\$ "
 fi
+export PROMPT_DIRTRIM=2
 
 #PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
@@ -99,3 +101,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 source ~/.bin/tmuxinator.bash
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
