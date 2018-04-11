@@ -38,6 +38,8 @@ Plug 'zerowidth/vim-copy-as-rtf'
 
 call plug#end()
 
+let g:indentguides_spacechar = '│'
+let g:indentLine_char = '│'
 
 "*****************************************************************************
 " Linting
