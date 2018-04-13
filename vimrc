@@ -512,6 +512,12 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+" Get mouse actions working in large terminals without spitting out
+" random characters
+if has('mouse_sgr')
+    set ttymouse=sgr
+endif
+
 " Windows
 set guioptions-=T
 set guioptions-=r
