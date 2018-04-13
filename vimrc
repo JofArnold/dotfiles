@@ -130,13 +130,9 @@ set  clipboard+=unnamed
 " Enable mouse in all modes
 set mouse+=a
 
-set t_Co=256
 set visualbell
 
 set smartindent
-
-syntax on
-colorscheme onedark
 
 " Sensible long lines
 set nowrap
@@ -271,18 +267,9 @@ au BufNewFile,BufRead *.styl set filetype=stylus
 "highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
 highlight ExtraWhitespace ctermfg=yellow guibg=yellow
 
-if has("mac")
-  let g:gist_clip_command = 'pbcopy'
-elseif has("unix")
-  let g:gist_clip_command = 'xclip -selection clipboard'
-endif
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
 
 " Show (partial) command in the status line
 set showcmd
-" Turn off jslint errors by default
-let g:JSLintHighlightErrorLine = 0
 
 " No save backup by .swp
 set nowb
@@ -296,6 +283,17 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 "*****************************************************************************
 " Keys
 "*****************************************************************************
+
+" Copy and paste
+
+if has("mac")
+  let g:gist_clip_command = 'pbcopy'
+elseif has("unix")
+  let g:gist_clip_command = 'xclip -selection clipboard'
+endif
+
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
 
 " Jump around HTML tags using %
 packadd! matchit
@@ -539,19 +537,5 @@ function! AddComponent(name, subpath)
   exe "split src/components/".a:subpath."/".a:name.".css"
 endfunction
 
-function! RGAddComponent(name, subpath)
-  exe "!./scripts/add_component.js ".shellescape(a:name)." ".shellescape(a:subpath)
-  exe "edit src/components/".a:subpath."/".a:name.".js"
-  exe "split src/components/".a:subpath."/".a:name.".css"
-endfunction
-
-function! BzAddComponent(name, subpath)
-  exe "!./scripts/add_component.js ".shellescape(a:name)." ".shellescape(a:subpath)
-  exe "vsplit styles/components/".a:subpath."/".a:name.".styl"
-  exe "edit src/components/".a:subpath."/".a:name.".js"
-endfunction
-
 command! -nargs=1 AddComponent call AddComponent(<f-args>, "")
 command! -nargs=1 AddUIComponent call AddComponent(<f-args>, "ui")
-command! -nargs=1 BzAddComponent call BzAddComponent(<f-args>, "")
-command! -nargs=1 RGAddComponent call RGAddComponent(<f-args>, "")
