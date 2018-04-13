@@ -34,6 +34,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -99,6 +100,13 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 "*****************************************************************************
 " GUI
 "*****************************************************************************
+
+" Make vert splits a bit more like tmux
+set fillchars+=vert:│
+
+" Nicer indents
+let g:indentguides_spacechar = '│'
+let g:indentLine_char = '│'
 
 " Utilsnips expand
 let g:UltiSnipsExpandTrigger = '<C-j>'
