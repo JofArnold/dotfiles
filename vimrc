@@ -244,9 +244,23 @@ endif
 " Syntax highlighting
 "*****************************************************************************
 
+"set t_Co=256
+syntax on
+
+" onedark
+let g:onedark_terminal_italics=1
+let g:onedark_termcolors=16 " Must come before colorscheme
 colorscheme onedark
 
+" Get vim to work properly with 24 bit color under tmux under iterm2
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+set guicursor=
+
 let g:jsx_ext_required = 0
+
+" Overrides
 
 au ColorScheme *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=red guibg=red
 " au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} setlocal spell spelllang=en
