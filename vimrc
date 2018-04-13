@@ -1,34 +1,21 @@
 call plug#begin('~/.vim/plugged')
 
 
-" Plug 'chrisbra/Colorizer'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'tpope/vim-rhubarb'
-"Plug 'digitaltoad/vim-jade'
-"Plug 'jason0x43/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
-"Plug 'MaxMEllon/vim-jsx-pretty'
-"Plug 'mtscout6/vim-cjsx'
-"Plug 'mxw/vim-jsx'
-"Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
-"Plug 'pangloss/vim-javascript'
-"Plug 'tpope/vim-commentary'
-"Plug 'tpope/vim-dispatch'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'elixir-editors/vim-elixir'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elzr/vim-json'
-Plug 'flowtype/vim-flow', { 'autoload' : {'filetypes': 'javascript'} }
-Plug 'honza/vim-snippets'
-Plug 'JofArnold/onedark.vim'
 Plug 'JofArnold/vim-react-snippets'
+Plug 'joshdick/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
-Plug 'kien/ctrlp.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'Olical/vim-enmasse'
+Plug 'othree/html5.vim'
 Plug 'rking/ag.vim'
 Plug 'sbdchd/neoformat'
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
@@ -126,9 +113,10 @@ let g:ycm_min_num_of_chars_for_completion = 1
 " let g:ycm_max_num_candidates = 10
 
 " Airline config
-let g:airline_theme='powerlineish'
+let g:airline_theme='onedark'
 let g:airline_section_x=0
 let g:airline_section_y=0
+let g:airline_powerline_fonts = 1
 
 " Don't unload buffers when switching (preserves undo history):
 set hidden
@@ -256,6 +244,7 @@ endif
 " Syntax highlighting
 "*****************************************************************************
 
+colorscheme onedark
 
 let g:jsx_ext_required = 0
 
