@@ -88,6 +88,9 @@ let g:ale_echo_msg_format = '%linter% says %s'
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 
+" Turn off jslint errors by default
+let g:JSLintHighlightErrorLine = 0
+
 
 "*****************************************************************************
 " Surround
