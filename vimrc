@@ -209,11 +209,6 @@ if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
-" Tab completion
-"set wildmode=list:longest,list:full
-"set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
-"set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
-
 
 "*****************************************************************************
 " File handling
