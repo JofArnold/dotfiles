@@ -128,7 +128,8 @@ set diffopt+=vertical
 set  clipboard+=unnamed
 "
 " Enable mouse in all modes
-set mouse+=a
+set ttymouse=xterm2
+set mouse=a
 
 set visualbell
 
