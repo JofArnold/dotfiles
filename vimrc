@@ -1,8 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
 
+"Plug 'chemzqm/vim-jsx-improve'
 Plug 'benjie/neomake-local-eslint.vim'
-Plug 'chemzqm/vim-jsx-improve'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'djoshea/vim-autoread'
@@ -12,8 +12,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'mxw/vim-jsx'
 Plug 'Olical/vim-enmasse'
 Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
