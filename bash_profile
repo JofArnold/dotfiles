@@ -41,7 +41,7 @@ alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Framew
 # selenium shortcuts
 alias 'selenium-server-standalone'='java -jar /usr/local/opt/selenium-server-standalone/selenium-server-standalone-2.33.0.jar -p 4444'
 
-alias e='nvim'
+alias e='vim'
 
 # config terminal
 set -o vi
