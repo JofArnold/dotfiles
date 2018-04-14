@@ -11,3 +11,19 @@ ln -s ~/dev/github/dotfiles/vimrc ~/.vimrc
 ln -s ~/dev/github/dotfiles/xvimrc ~/.xvimrc
 ln -s ~/dev/github/dotfiles/gitignore_global ~/.gitignore_global
 ```
+
+
+TODO:
+
+- ~/.tmux/
+- htop
+- nvm/npm
+- react native
+- react native devtools
+- python *for vim
+- docker
+- Break time
+- Expo
+- Chrome
+- KeepingYouAwake
+- Postgres/pgAdmin
