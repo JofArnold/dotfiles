@@ -254,6 +254,16 @@ endif
 syntax on
 
 " onedark
+
+if (has("autocmd"))
+  augroup colorextend
+    autocmd!
+    autocmd ColorScheme * call onedark#extend_highlight("MatchParen", { "bg": { "gui": "#e5c07b" }, "fg": {"gui": "#282c34" }})
+    autocmd ColorScheme * call onedark#extend_highlight("VertSplit", { "bg": { "gui": "NONE" }, "fg": {"gui": "#686868" }})
+    autocmd ColorScheme * call onedark#extend_highlight("xmlAttrib", { "gui": "italic", "cterm": "italic" })
+  augroup END
+endif
+
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=16 " Must come before colorscheme
 colorscheme onedark
@@ -267,15 +277,13 @@ set guicursor=
 let g:jsx_ext_required = 0
 
 " Overrides
-
-au ColorScheme *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=red guibg=red
 " au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} setlocal spell spelllang=en
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} match ExtraWhitespace /\s\+$\|\t/
-au BufNewFile,BufRead *.json set ft=javascript
-au BufNewFile,BufRead *.styl set filetype=stylus
-"highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
-highlight ExtraWhitespace ctermfg=yellow guibg=yellow
+" au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+" au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} match ExtraWhitespace /\s\+$\|\t/
+" au BufNewFile,BufRead *.json set ft=javascript
+" au BufNewFile,BufRead *.styl set filetype=stylus
+" "highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
+" highlight ExtraWhitespace ctermfg=yellow guibg=yellow
 
 
 " Show (partial) command in the status line
