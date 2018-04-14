@@ -250,11 +250,9 @@ endif
 " Syntax highlighting
 "*****************************************************************************
 
-"set t_Co=256
 syntax on
 
 " onedark
-
 if (has("autocmd"))
   augroup colorextend
     autocmd!
@@ -263,7 +261,6 @@ if (has("autocmd"))
     autocmd ColorScheme * call onedark#extend_highlight("xmlAttrib", { "gui": "italic", "cterm": "italic" })
   augroup END
 endif
-
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=16 " Must come before colorscheme
 colorscheme onedark
