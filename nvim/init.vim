@@ -176,7 +176,7 @@ set number
 set scrolloff=5
 
 " Font
-set guifont=Monaco\ For\ Powerline:h13
+"set guifont=Monaco\ For\ Powerline:h13
 
 set nocompatible   " Disable vi-compatibility
 set encoding=utf-8 " Necessary to show Unicode glyphs
