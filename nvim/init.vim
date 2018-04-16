@@ -305,6 +305,17 @@ let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 " Keys
 "*****************************************************************************
 
+" Copy and paste
+
+if has("mac")
+  let g:gist_clip_command = 'pbcopy'
+elseif has("unix")
+  let g:gist_clip_command = 'xclip -selection clipboard'
+endif
+
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+
 " Jump around HTML tags using %
 " packadd! matchit
 
