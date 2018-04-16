@@ -121,10 +121,10 @@ let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " Make YouCompleteMe slightly less unruly
-" let g:ycm_key_list_select_completion = ['<Down>']
-" let g:ycm_key_list_previous_completion = ['<Up>']
-" let g:ycm_key_invoke_completion = ''
-" let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_invoke_completion = ''
+"let g:ycm_min_num_of_chars_for_completion = 1
 " let g:ycm_max_num_candidates = 10
 
 " Airline config
