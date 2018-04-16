@@ -525,13 +525,22 @@ nmap <leader>ss :SaveSession
 
 
 " Tmux cursor change
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
+" if exists('$TMUX')
+"   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+"   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"   let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+" 
+" else
+"   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"   let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+"   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+" endif
+
+" Get mouse actions working in large terminals without spitting out
+" random characters
+" if has('mouse_sgr')
+"     set ttymouse=sgr
+" endif
 
 " Windows
 set guioptions-=T
@@ -540,11 +549,6 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=R
 
-" Mouse dragging of panes in tmux
-if &term =~ '^screen'
-  set mouse+=a
-  " tmux knows the extended mouse mode
-endif
 
 "*****************************************************************************
 " Trigger scripts
