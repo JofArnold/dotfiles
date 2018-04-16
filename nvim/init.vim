@@ -1,25 +1,26 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'JofArnold/onedark.vim'
-Plug 'JofArnold/vim-react-snippets'
-Plug 'Olical/vim-enmasse'
-Plug 'SirVer/ultisnips'
-Plug 'Valloric/MatchTagAlways'
+
+"Plug 'chemzqm/vim-jsx-improve'
 Plug 'benjie/neomake-local-eslint.vim'
-Plug 'chemzqm/vim-jsx-improve'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'elixir-editors/vim-elixir'
+Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'djoshea/vim-autoread'
 Plug 'elzr/vim-json'
-Plug 'flowtype/vim-flow', { 'autoload' : {'filetypes': 'javascript'} }
-Plug 'honza/vim-snippets'
+Plug 'JofArnold/vim-react-snippets'
+Plug 'joshdick/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/vim-emoji'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'mxw/vim-jsx'
+Plug 'Olical/vim-enmasse'
 Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'sbdchd/neoformat'
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+" Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish' " Needed for Subvert
 Plug 'tpope/vim-eunuch'
@@ -29,17 +30,19 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'Valloric/MatchTagAlways'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-Plug 'zerowidth/vim-copy-as-rtf'
+Plug 'Yggdroot/indentLine'
+Plug 'wincent/terminus'
+
 
 call plug#end()
 
-let g:indentguides_spacechar = '│'
-let g:indentLine_char = '│'
 
 "*****************************************************************************
 " Linting
@@ -75,14 +78,10 @@ nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
 vnoremap <leader>f :!eslint_d --stdin --fix-to-stdout<CR>gv
 
 let g:ale_linters = {
-\  'elixir': [],
 \  'javascript': ['flow', 'eslint']
 \}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-" let g:ale_sign_error = '×'
-" let g:ale_sign_warning = '?'
-" let g:ale_statusline_format = ['× %d', '? %d', '']
 let g:ale_sign_error = '🔥'
 let g:ale_sign_warning = '💭'
 let g:ale_statusline_format = ['🔥 %d', '💭 %d', '']
@@ -92,6 +91,9 @@ let g:ale_echo_msg_format = '%linter% says %s'
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
+
+" Turn off jslint errors by default
+let g:JSLintHighlightErrorLine = 0
 
 
 "*****************************************************************************
@@ -106,9 +108,12 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 " GUI
 "*****************************************************************************
 
-" Match splits to tmux... ish
+" Make vert splits a bit more like tmux
 set fillchars+=vert:│
 
+" Nicer indents
+let g:indentguides_spacechar = '│'
+let g:indentLine_char = '│'
 
 " Utilsnips expand
 let g:UltiSnipsExpandTrigger = '<C-j>'
@@ -123,7 +128,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 " let g:ycm_max_num_candidates = 10
 
 " Airline config
-let g:airline_theme='powerlineish'
+let g:airline_theme='onedark'
 let g:airline_section_x=0
 let g:airline_section_y=0
 let g:airline_powerline_fonts = 1
@@ -141,17 +146,9 @@ set  clipboard+=unnamed
 " Enable mouse in all modes
 set mouse+=a
 
-"set t_Co=256
-" gui colors if running iTerm
-if $TERM_PROGRAM =~ "iTerm"
-  set termguicolors
-endif
 set visualbell
 
 set smartindent
-
-syntax on
-colorscheme onedark
 
 " Sensible long lines
 set nowrap
@@ -259,31 +256,41 @@ endif
 " Syntax highlighting
 "*****************************************************************************
 
+syntax on
+
+" onedark
+if (has("autocmd"))
+  augroup colorextend
+    autocmd!
+    autocmd ColorScheme * call onedark#extend_highlight("MatchParen", { "bg": { "gui": "#e5c07b" }, "fg": {"gui": "#282c34" }})
+    autocmd ColorScheme * call onedark#extend_highlight("VertSplit", { "bg": { "gui": "NONE" }, "fg": {"gui": "#686868" }})
+    autocmd ColorScheme * call onedark#extend_highlight("xmlAttrib", { "gui": "italic", "cterm": "italic" })
+  augroup END
+endif
+let g:onedark_terminal_italics=1
+let g:onedark_termcolors=16 " Must come before colorscheme
+colorscheme onedark
+
+" Get vim to work properly with 24 bit color under tmux under iterm2
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+" set guicursor=
 
 let g:jsx_ext_required = 0
 
-au ColorScheme *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=red guibg=red
+" Overrides
 " au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} setlocal spell spelllang=en
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} match ExtraWhitespace /\s\+$\|\t/
-au BufNewFile,BufRead *.json set ft=javascript
-au BufNewFile,BufRead *.styl set filetype=stylus
-"highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
-highlight ExtraWhitespace ctermfg=yellow guibg=yellow
+" au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+" au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} match ExtraWhitespace /\s\+$\|\t/
+" au BufNewFile,BufRead *.json set ft=javascript
+" au BufNewFile,BufRead *.styl set filetype=stylus
+" "highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
+" highlight ExtraWhitespace ctermfg=yellow guibg=yellow
 
-let g:gist_clip_command = 'pbcopy'
-if has("mac")
-  let g:gist_clip_command = 'pbcopy'
-elseif has("unix")
-  let g:gist_clip_command = 'xclip -selection clipboard'
-endif
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
 
 " Show (partial) command in the status line
 set showcmd
-" Turn off jslint errors by default
-let g:JSLintHighlightErrorLine = 0
 
 " No save backup by .swp
 set nowb
