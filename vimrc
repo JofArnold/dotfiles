@@ -20,7 +20,7 @@ Plug 'rking/ag.vim'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish' " Needed for Subvert
 Plug 'tpope/vim-eunuch'
@@ -76,7 +76,6 @@ nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
 vnoremap <leader>f :!eslint_d --stdin --fix-to-stdout<CR>gv
 
 let g:ale_linters = {
-\  'elixir': [],
 \  'javascript': ['flow', 'eslint']
 \}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
