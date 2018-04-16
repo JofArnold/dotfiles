@@ -561,13 +561,5 @@ function! AddComponent(name, subpath)
   exe "split src/components/".a:subpath."/".a:name.".css"
 endfunction
 
-function! BrisketAddComponent(name, type)
-  exe "!./scripts/add-component.js ".shellescape(a:name)." ".shellescape(a:type)
-endfunction
-
-
 command! -nargs=1 AddComponent call AddComponent(<f-args>, "")
 command! -nargs=1 AddUIComponent call AddComponent(<f-args>, "ui")
-command! -nargs=1 BrisketAddClassComponent call BrisketAddComponent(<f-args>, "class")
-command! -nargs=1 BrisketAddFunctionalComponent call BrisketAddComponent(<f-args>, "functional")
-
