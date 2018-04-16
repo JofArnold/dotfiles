@@ -238,10 +238,8 @@ endif
 "*****************************************************************************
 " File handling
 "*****************************************************************************
-
-let NERDTreeShowHidden=1
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" NERDTree
+map <c-l> :NERDTreeToggle<CR>
 
 "filetype plugin on
 
