@@ -39,6 +39,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'Yggdroot/indentLine'
 Plug 'wincent/terminus'
+Plug 'ryanoasis/vim-devicons'
 
 
 call plug#end()
