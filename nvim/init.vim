@@ -109,6 +109,9 @@ nnoremap <leader>"" :normal ysiw"<Enter>
 " GUI
 "*****************************************************************************
 
+" Stop JSON looking and acting ghastly
+set conceallevel=0 
+
 " Make vert splits a bit more like tmux
 set fillchars+=vert:│
 
