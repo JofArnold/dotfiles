@@ -137,7 +137,6 @@ let g:airline_section_x=0
 let g:airline_section_y=0
 let g:airline_powerline_fonts = 1
 
-
 " Don't unload buffers when switching (preserves undo history):
 set hidden
 
@@ -148,7 +147,8 @@ set diffopt+=vertical
 set  clipboard+=unnamed
 "
 " Enable mouse in all modes
-set mouse+=a
+"set ttymouse=xterm2
+set mouse=a
 
 set visualbell
 
