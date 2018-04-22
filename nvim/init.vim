@@ -322,9 +322,6 @@ endif
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
-" Jump around HTML tags using %
-" packadd! matchit
-
 " Tag closing
 let g:ragtag_global_maps = 1
 
