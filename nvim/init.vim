@@ -266,7 +266,7 @@ syntax on
 if (has("autocmd"))
   augroup colorextend
     autocmd!
-    autocmd ColorScheme * call onedark#extend_highlight("MatchParen", { "bg": { "gui": "#e5c07b" }, "fg": {"gui": "#282c34" }})
+    autocmd ColorScheme * call onedark#extend_highlight("MatchParen", { "gui": "bold", "fg": {"gui": "yellow" }, "bg": {"gui": "#3E4451"}})
     autocmd ColorScheme * call onedark#extend_highlight("VertSplit", { "bg": { "gui": "NONE" }, "fg": {"gui": "#686868" }})
     autocmd ColorScheme * call onedark#extend_highlight("xmlAttrib", { "gui": "italic", "cterm": "italic" })
   augroup END
