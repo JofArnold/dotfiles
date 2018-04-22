@@ -292,6 +292,8 @@ let g:jsx_ext_required = 0
 " "highlight Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#1D1D1D
 " highlight ExtraWhitespace ctermfg=yellow guibg=yellow
 
+au BufNewFile,BufRead *.json let g:indentLine_conceallevel = 0
+au BufNewFile,BufRead *.js let g:indentLine_conceallevel = 2
 
 " Show (partial) command in the status line
 set showcmd
