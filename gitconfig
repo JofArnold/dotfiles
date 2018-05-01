@@ -1,0 +1,50 @@
+[core]
+  autocrlf = input
+  safecrlf = true
+  editor = vim
+  excludesfile = /Users/cody/.gitignore_global
+
+[alias]
+  co = checkout
+  ci = commit
+   st = status
+   br = branch
+   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+   type = cat-file -t
+   dump = cat-file -p
+
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  lg = log --graph --pretty=format:'%Cgreen%h%Creset -%Creset %s%C(yellow)%d %Cblue(%aN, %cr)%Creset' --abbrev-commit --date=relative
+  heir = log --all --graph --decorate --oneline --simplify-by-decoration
+  ghurl =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\(\\.git\\)?$/https:\\\\/\\\\/github\\\\.com\\\\/\\\\1/g"'
+  shipit = push origin origin/master:production
+
+
+[color]
+  ui = true
+
+[push]
+  default = tracking
+
+[mergetool]
+	keepBackup = true
+
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
