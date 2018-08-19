@@ -14,6 +14,7 @@
   "editor.renderControlCharacters": true,
   "editor.minimap.enabled": false,
   "editor.selectionHighlight": false,
+  "workbench.editor.showTabs": false,
   // ----------------------------------------
   // Terminal
   "terminal.integrated.fontFamily": "Fira Code",
@@ -24,6 +25,7 @@
   // Vim
   //
   "vim.enableNeovim": true,
+  "vim.neovimPath": "nvim",
   "vim.easymotion": true,
   "vim.leader": "\\",
   "vim.hlsearch": true,
@@ -117,42 +119,38 @@
     //"editorOverviewRuler.warningForeground": "#0000FF",
     "editor.selectionBackground": "#363C48",
     "editor.findMatchBackground": "#00FF00",
-    "editorBracketMatch.background": "#363C47",
-    "editorBracketMatch.border": "#C0C0C0",
+    "editorBracketMatch.background": "#56A6ED",
+    "editorBracketMatch.border": "#C0C0C000",
     //"editor.findMatchHighlightBackground": "#E1B870",
     //"editorOverviewRuler.bracketMatchForeground": "#ff0000",
-    "editorOverviewRuler.bracketMatchForeground": "#FFFF03",
+    "editorOverviewRuler.bracketMatchForeground": "#56A6ED",
     "editor.lineHighlightBackground": "#FF000000",
     //"editor.lineHighlightBorder": "#363C48",
     //"editor.background": "#1F2125",
     "editor.background": "#26292F",
     //"editor.background": "#24272E",
-    "peekViewEditorGutter.background": "#ff0000",
+    "peekViewEditorGutter.background": "#1F2125",
+    "peekViewEditor.background": "#1F2125",
+    "peekView.border": "#404145",
+    //"peekViewEditor.matchHighlightBackground": "#ff0000",
     "editorGutter.addedBackground": "#70C48E44",
     "editorGutter.deletedBackground": "#DC616A",
     "editorLineNumber.foreground": "#424858",
     //"editorLineNumber.foreground": "#3A3F4C",
     "editorSuggestWidget.background": "#1F2125",
     "editorSuggestWidget.border": "#404145",
+    "editorSuggestWidget.selectedBackground": "#363C48",
     "editorError.foreground": "#DC616A",
     "editorIndentGuide.background": "#333538",
     "editorIndentGuide.activeBackground": "#333538",
     "editor.findMatchHighlightBackground": "#E4BF7F",
     "editor.lineHighlightBorder": "#363C4800",
-    //"editorOverviewRuler.selectionHighlightForeground": "#ff0000",
-    //"editor.findMatchBorder": "#ff0000",
     "editor.selectionHighlightBorder": "#ff000000",
-    //"editorGutter.background": "#ff000000",
-    //"editorGroupHeader.noTabsBackground": "#ff0000",
-    //"editorGroupHeader.tabsBackground": "#ff0000",
     "editorGroupHeader.tabsBorder": "#ff000000",
     "editorCursor.foreground": "#56A6ED",
-    //"editorCursor.foreground": "#C0C0C0",
-    //"editor.selectionForeground": "#ff0000",
+    "editorCursor.background": "#26292F",
     "editor.selectionHighlightBackground": "#ff000000",
     "editorOverviewRuler.selectionHighlightForeground": "#ff000000",
-    //"editor.findMatchHighlightBorder": "#ff0000",
-    //"editor.findMatchBorder": "#ff0000",
     "editor.wordHighlightBackground": "#ff000000",
     "editor.wordHighlightBorder": "#ff000000",
     "editor.wordHighlightStrongBackground": "#ff000000",
@@ -160,19 +158,18 @@
     // ----------------------------------------
     // Panel
     //
-    //"panelTitle.activeForeground": "#8DBB6E",
     "panelTitle.inactiveForeground": "#909295",
     "panelTitle.activeBorder": "#00000000",
-    //"editorError.border": "#0000FF",
-    //"panel.background": "#22252A",
     "panel.background": "#1F2125",
     "panel.border": "#40414500",
     "editorOverviewRuler.border": "#ff000000",
     "editorLineNumber.activeForeground": "#A1A9B7",
     "editorGroup.border": "#404145",
-    "editorGutter.modifiedBackground": "#ff0000",
+    "editorGutter.modifiedBackground": "#404145",
+    "editorGutter.background": "#ff000000",
+    "diffEditor.insertedTextBackground": "#8DBB6E33",
+    "diffEditor.removedTextBackground": "#dc616a33",
 
-    "peekViewEditor.matchHighlightBackground": "#ff0000",
     // ----------------------------------------
     // Sidebar
     //
@@ -185,8 +182,8 @@
     //
     "statusBar.background": "#191919",
     "statusBar.border": "#191919",
-    //"statusBar.debuggingForeground": "#ff0000",
-    //"statusBar.debuggingBackground": "#ff0000",
+    "statusBar.debuggingForeground": "#1F2125",
+    "statusBar.debuggingBackground": "#BE6DD8",
     //"statusBarItem.prominentBackground": "#ff0000",
     //"statusBarItem.hoverBackground": "#ff0000",
     // ----------------------------------------
@@ -194,18 +191,16 @@
     //
     //"scrollbarSlider.background": "#ff0000",
     //"scrollbar.shadow": "#38393C",
-    "debugToolBar.background": "#ff0000",
+    "debugToolBar.background": "#1F2125",
     "debugExceptionWidget.background": "#ff0000",
+    //"statusBar.debuggingBorder": "#ff0000",
     "dropdown.border": "#ff000000",
     //"editor.findMatchHighlightBorder": "#ff0000",
     "contrastActiveBorder": "#FF000000",
-    //"peekViewEditor.matchHighlightBackground": "#ff0000",
-    //"peekView.border": "#ff0000",
     "activityBar.background": "#24272E",
     //"debugToolBar.background": "#ff0000",
     "sideBarSectionHeader.background": "#24272E",
     "sideBarSectionHeader.foreground": "#56A6ED"
-    //"peekViewResult.matchHighlightBackground": "#ff0000"
   },
   "editor.tokenColorCustomizations": {
     // "[One Dark Theme]": {
@@ -229,6 +224,21 @@
     //"types": "#E1B870",
     //"strings": "#00FF00",
     "textMateRules": [
+      {
+        "name": "Children",
+        "scope": "JSXNested",
+        "settings": {
+          "foreground": "#A1A9B7"
+        }
+      },
+      {
+        "name": "Comment Slashes",
+        "scope": "source.js comment.line.double-slash.js",
+        "settings": {
+          "foreground": "#525865",
+          "fontStyle": "italic"
+        }
+      },
       {
         "name": "js ts this",
         "scope": "punctuation.definition.comment.js",
@@ -398,5 +408,6 @@
         }
       }
     ]
-  }
+  },
+  "editor.multiCursorModifier": "alt"
 }
