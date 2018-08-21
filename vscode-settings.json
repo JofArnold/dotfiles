@@ -203,20 +203,6 @@
     "sideBarSectionHeader.foreground": "#56A6ED"
   },
   "editor.tokenColorCustomizations": {
-    // "[One Dark Theme]": {
-    //"comments": "#FF0000",
-    // "functions": "#56A6ED",
-    // "strings": "#84BB6E",
-    // "types": "#CE616A",
-    // //"types": "#56b6c2",
-    // "variables": "#A1A9B7",
-    // "keywords": "#B26DD8",
-    // "numbers": "#CB884E"
-    // },
-    "[One Dark Pro]": {
-      //"variables": "#A1A9B7"
-      //"comments": "#525861"
-    },
     "comments": "#525865",
     "variables": "#b7bdc8",
     "keywords": "#c678dd",
