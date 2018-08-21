@@ -166,7 +166,7 @@
     "editorLineNumber.activeForeground": "#A1A9B7",
     "editorGroup.border": "#404145",
     "editorGutter.modifiedBackground": "#404145",
-    "editorGutter.background": "#ff000000",
+    "editorGutter.background": "#282C34",
     "diffEditor.insertedTextBackground": "#8DBB6E33",
     "diffEditor.removedTextBackground": "#dc616a33",
 
