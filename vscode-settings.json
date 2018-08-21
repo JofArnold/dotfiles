@@ -194,9 +194,9 @@
     "debugToolBar.background": "#1F2125",
     "debugExceptionWidget.background": "#ff0000",
     //"statusBar.debuggingBorder": "#ff0000",
-    "dropdown.border": "#ff000000",
+    "dropdown.border": "#404145",
     //"editor.findMatchHighlightBorder": "#ff0000",
-    "contrastActiveBorder": "#FF000000",
+    "contrastActiveBorder": "#FF000000", // Tab
     "activityBar.background": "#24272E",
     //"debugToolBar.background": "#ff0000",
     "sideBarSectionHeader.background": "#24272E",
