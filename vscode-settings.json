@@ -1,22 +1,39 @@
 {
   // ----------------------------------------
-  // Editor styles
+  // Config
   //
-  "workbench.colorTheme": "One Dark Pro",
-  "editor.fontSize": 13,
+  "debug.toolBarLocation": "floating",
+  "editor.autoClosingBrackets": true,
   "editor.cursorStyle": "line",
-  "editor.renderIndentGuides": true,
-  "editor.tabSize": 2,
   "editor.fontFamily": "Fira Code, Monaco, 'Courier New', monospace",
-  "editor.lineHeight": 20,
   "editor.fontLigatures": true,
-  "workbench.editor.showIcons": true,
-  "editor.renderControlCharacters": true,
+  "editor.fontSize": 13,
+  "editor.lineHeight": 20,
   "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "alt",
+  "editor.renderControlCharacters": true,
+  "editor.renderIndentGuides": true,
   "editor.selectionHighlight": false,
-  "workbench.editor.showTabs": false,
+  "editor.tabSize": 2,
+  "team.showWelcomeMessage": false,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "terminal.integrated.confirmOnExit": true,
+  "terminal.integrated.experimentalRestore": true,
+  "window.restoreWindows": "all",
+  "window.title": "${folderPath}/${activeEditorShort} ${dirty}",
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.editor.showIcons": true,
+  "workbench.panel.defaultLocation": "bottom",
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "none",
+  "workbench.statusBar.visible": true,
+  //"workbench.editor.showTabs": false,
   // ----------------------------------------
   // Terminal
+  //
   "terminal.integrated.fontFamily": "Fira Code",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.lineHeight": 1.5,
@@ -53,29 +70,14 @@
       "commands": [":nohl"]
     }
   ],
-  "window.title": "${folderPath}/${activeEditorShort} ${dirty}",
-  "editor.autoClosingBrackets": false,
-  "workbench.activityBar.visible": true,
-  "workbench.statusBar.visible": true,
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.panel.defaultLocation": "bottom",
   // ----------------------------------------
   // Prettier
   //
   "javascript.format.enable": false,
   "editor.formatOnSave": true,
-  //"eslint.autoFixOnSave": false,
+  "eslint.autoFixOnSave": true, // Maybe
   "eslint.alwaysShowStatus": true,
   "prettier.eslintIntegration": true,
-
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
-  //"search.location": "panel",
-  "workbench.sideBar.location": "left",
-  "debug.toolBarLocation": "floating",
-  "window.zoomLevel": 0,
-  "team.showWelcomeMessage": false,
-
   // ----------------------------------------
   // Theme
   //
@@ -355,6 +357,5 @@
         }
       }
     ]
-  },
-  "editor.multiCursorModifier": "alt"
+  }
 }
