@@ -8,14 +8,13 @@
   "editor.fontFamily": "Fira Code, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
-  "editor.lineHeight": 20,
+  "editor.lineHeight": 21,
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "alt",
   "editor.renderControlCharacters": true,
   "editor.renderIndentGuides": true,
   "editor.selectionHighlight": false,
   "editor.tabSize": 2,
-  "team.showWelcomeMessage": false,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.confirmOnExit": true,
@@ -23,7 +22,7 @@
   "window.restoreWindows": "all",
   "window.title": "${folderPath}/${activeEditorShort} ${dirty}",
   "window.zoomLevel": 0,
-  "workbench.activityBar.visible": true,
+  "workbench.activityBar.visible": false,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.editor.showIcons": true,
   "workbench.panel.defaultLocation": "bottom",
@@ -82,17 +81,25 @@
   // Theme
   //
   "workbench.colorCustomizations": {
+    //"editorGroup.focusedEmptyBorder": "#ff0000",
+    "tab.activeBorder": "#56A6ED",
+    "tab.activeBackground": "#ff000000",
+    "tab.unfocusedActiveBorder": "#00ff0000",
     "activityBar.background": "#24272E",
     "contrastActiveBorder": "#FF000000", // Tab
     "debugExceptionWidget.background": "#ff0000",
     "debugToolBar.background": "#1F2125",
-    "diffEditor.insertedTextBackground": "#8DBB6E33",
-    "diffEditor.removedTextBackground": "#dc616a33",
+    "diffEditor.insertedTextBackground": "#8DBB6E11",
+    "diffEditor.removedTextBackground": "#dc616a22",
+    //"diffEditor.insertedTextBorder": "#ff000000",
     "dropdown.background": "#1F2125",
     "dropdown.border": "#404145",
-    "editor.background": "#26292F",
+    //"editor.background": "#1F2125",
+    "editor.background": "#26292F", // REVERT ME
     "editor.findMatchBackground": "#00FF00",
-    "editor.findMatchHighlightBackground": "#E4BF7F",
+    "editor.findMatchHighlightBackground": "#E4BF7F00",
+    "editor.findMatchBorder": "#E4BF7F",
+    "editor.findMatchHighlightBorder": "#E4BF7F",
     "editor.lineHighlightBackground": "#FF000000",
     "editor.lineHighlightBorder": "#363C4800",
     "editor.selectionBackground": "#363C48",
@@ -357,5 +364,6 @@
         }
       }
     ]
-  }
+  },
+  "breadcrumbs.enabled": true
 }
